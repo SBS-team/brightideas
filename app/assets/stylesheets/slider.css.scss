@@ -1,0 +1,61 @@
+.carousel-control {
+  padding-top:10%;
+  width:5%;
+}
+.well{
+  margin:0 50px;
+  border:none;
+  background: none;
+}
+.carousel_control.left{
+  background-image: linear-gradient(to right, rgba(0, 0, 0,0.2) 0%, rgba(0, 0, 0, 0) 100%);
+}
+.carousel_control.left:hover,.carousel_control.left:focus{
+  background-image: linear-gradient(to right, rgba(0, 0, 0,0.4) 0%, rgba(0, 0, 0, 0) 100%);
+  font-size: 20px;
+  color: #101313;
+  text-decoration: none;
+}
+
+.carousel_control.right{
+  background-repeat: repeat-x;
+  left: auto;
+  right: 0;
+  background-image: linear-gradient(to left, rgba(0, 0, 0,0.2) 0%, rgba(0, 0, 0, 0) 100%);
+}
+.carousel_control.right:hover,.carousel_control.right:focus{
+  background-image: linear-gradient(to left, rgba(0, 0, 0,0.4) 0%, rgba(0, 0, 0, 0) 100%);
+  font-size: 20px;
+  color: #101313;
+  text-decoration: none;
+}
+.carousel_control{
+  padding-top: 10%;
+  bottom: 0;
+  color: white;
+  font-size: 20px;
+  left: 0;
+  opacity: 0.5;
+  position: absolute;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  top: 0;
+  width: 5%;
+}
+.carousel_control a{
+
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+
+}
+.carousel.slide{
+bottom: 5px;
+}
+//.carousel-inner{
+//  height:180px;
+//}
+//.img-responsive{
+//  width:180px;
+//}

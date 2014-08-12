@@ -1,0 +1,55 @@
+// Place all the styles related to the ideas controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.idea-image {
+  width:100%;
+  height:150px;
+}
+.idea-title {
+  position: absolute;
+  margin-top:50px;
+  margin-left:200px;
+  font-size:30px;
+}
+.idea-owner {
+  position: absolute;
+  width:auto;
+  margin: 0px 10px 0px 10px;
+}
+.idea-owner img{
+  margin-left: 0px;
+  margin-top:10px;
+  width: 120px;
+  border: 2px black solid;
+}
+.owner-name a{
+  width: 100%;
+  color: black;
+}
+
+.attach-item{
+  position: absolute;
+  border: 2px black solid;
+  width: 100px;
+  height: 100px;
+  left: 40px;
+}
+.idea-description{
+  width:auto;
+}
+.vote{
+  color: #afafaf;
+  float:right;
+  font-size: 25px;
+  letter-spacing:-4px;
+  margin: 10px;
+}
+.icon-star:hover:before,.star-hovered{
+  color: #ffd500;
+  cursor: pointer;
+  content: "\e6d0";
+}
+.comments{
+  border: 2px black solid;
+  margin-top: 50px;
+}
