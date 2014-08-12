@@ -1,0 +1,20 @@
+.authform
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    %h2 Sign in
+    .form-group
+      %div
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, class: 'form-control'
+    .form-group
+      %div
+        = f.label :password
+        %br/
+        = f.password_field :password, autocomplete: "off", class: 'form-control'
+      - if devise_mapping.rememberable?
+        .form-group
+          %div
+            = f.check_box :remember_me
+            = f.label :remember_me
+    %div= f.submit "Sign in"
+  = render "devise/shared/links"

@@ -43,3 +43,13 @@ section {
   @extend .row;
   margin-top: 20px;
   }
+
+.authform {
+  position: relative;
+  margin: 20px auto;
+  width: 280px;
+  padding: 33px 25px 29px;
+  background: white;
+  border-radius: 5px;
+  border-bottom: 1px solid #c4c4c4;
+}

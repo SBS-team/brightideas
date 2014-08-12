@@ -1,0 +1,42 @@
+=render 'layouts/navigation'
+.authform
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+    %h2 Sign up
+    = devise_error_messages!
+    .form-group
+      %div
+        = f.label :first_name
+        %br/
+        = f.text_field :first_name, class: 'form-control'
+    .form-group
+      %div
+        = f.label :last_name
+        %br/
+        = f.text_field :last_name, class: 'form-control'
+    .form-group
+      %div
+        = f.label :rank_id
+        %br/
+        = f.select :rank_id, options_for_select(@ranks.each_with_index.map {|name, index| [name,index+1]}), {}, {:class => 'form-control'}
+    .form-group
+      %div
+        = f.label :office_num
+        %br/
+        = f.select :office_num, options_for_select(@offices), {}, { :class => 'form-control' }
+    .form-group
+      %div
+        = f.label :email
+        %br/
+        = f.email_field :email, class: 'form-control'
+    .form-group
+      %div
+        = f.label :password
+        %br/
+        = f.password_field :password, class: 'form-control'
+    .form-group
+      %div
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, class: 'form-control'
+    %div= f.submit "Sign up", :class => 'button right'
+    = render "devise/shared/links"
