@@ -21,7 +21,7 @@ gem 'rails-erd'
 gem 'closure_tree'
 gem 'acts_as_votable'
 gem 'jquery-star-rating-rails'
-
+gem 'carrierwave'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
