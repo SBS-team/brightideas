@@ -37,19 +37,81 @@
 .idea-description{
   width:auto;
 }
-.vote{
-  color: #afafaf;
+.star-rating.rating-md.rating-active{
   float:right;
-  font-size: 25px;
-  letter-spacing:-4px;
-  margin: 10px;
+  font-size: 30px;
 }
-.icon-star:hover:before,.star-hovered{
-  color: #ffd500;
-  cursor: pointer;
-  content: "\e6d0";
+.star-rating.rating-md.rating-active .caption{
+  float:left;
+  padding-top: 10px;
+  padding-right: 5px;
 }
 .comments{
   border: 2px black solid;
   margin-top: 50px;
+}
+.file-preview-thumbnails{
+  border: 2px black solid;
+  height: auto;
+  text-align: center;
+}
+.file-preview-thumbnails span{
+  font-size:50px;
+  height: auto;
+  text-align: center;
+}
+.col-xs-3 img{
+  min-height: 50px;
+  min-width: 50px;
+}
+//@media screen and (max-width: 640px) {
+//  /* STYLES HERE for BROWSER WINDOWS with a max-width of 480px. This will work on desktops when the window is narrowed.  */
+//  //  .col-xs-3{
+//  //    margin-left: 5px;
+//  //    margin-right: 5px;
+//  //  }
+//  //  .well {
+//  //    margin: 0 10px -10px 0px !important;
+//  //  }
+//  .file-preview-thumbnails{
+//    border: 2px red solid;
+//
+//  }
+//}
+.attach-frame:hover {
+  background-color: #eee;
+  box-shadow: 2px 2px 5px 0px #333;
+}
+
+.attach-frame{
+  display: table;
+  border: 1px solid #ddd;
+  box-shadow: 1px 1px 5px 0px #a2958a;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  float: left;
+  height: 0px;
+  text-align: center;
+  vertical-align: middle;
+}
+.attach-other{
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  vertical-align: middle;
+  text-align: center;
+//  font-size: 50px;
+  padding: 8px;
+
+}
+.attach-image {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  vertical-align: text-center;
+  padding: 8px;
 }

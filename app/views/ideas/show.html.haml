@@ -15,13 +15,18 @@
             .row
               .col-xs-3
                 %a{:href => "#x"}
-                  %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
+                  %img{:alt => "Image", :src => "http://placehold.it/250x250"}/
               .col-xs-3
-                %a{:href => "#x"}
-                  %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
+                .attach-frame
+                  .attach-image
+                    %a{:href => "#x"}
+                      %img{:alt => "Image", :src => "http://placehold.it/250x250"}/
               .col-xs-3
-                %a{:href => "#x"}
-                  %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
+                .attach-frame
+                  .attach-other
+                    %h2
+                      %i.glyphicon.glyphicon-file
+                    DCIM.zip
               .col-xs-3
                 %a{:href => "#x"}
                   %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
@@ -57,34 +62,93 @@
       %a.right.carousel_control{"data-slide" => "next", :href => "#myCarousel"} ›
   .idea-description
     =@idea.description
-  .vote
-    %span.icon-star
-    %span.icon-star
-    %span.icon-star
-    %span.icon-star
-    %span.icon-star
-  .comments
-    %li.to.clearfix
-      .chat-body.clearfix
-        .header
-          %strong.primary-font
-            = link_to "message.user.login", '#'
-          %small.pull-right.text-muted
-            %span.glyphicon.glyphicon-time>
-            test
-          .message
-            egaerrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
-            #long-text{ style: 'display: none;' }
-              %small.pull-right.text-muted
-                %span.glyphicon.glyphicon-chevron-up{ style: 'cursor: pointer;' }
-              %p
-                okuiogfvu8ogf8uo
-    %li.from.clearfix
-      .chat-body.clearfix
-        .header
-          %strong.primary-font
-            hgggggggggggggggggggggg
-          %small.pull-right.text-muted
-            %span.glyphicon.glyphicon-time>
-            hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-          .message
+  %input#input-2.rating{"data-max" => "5", "data-min" => "0","data-show-clear"=>"false", "data-step" => "0.1"}
+  .detailBox
+    .actionBox
+      %ul.commentList
+        %li
+          .commenterImage
+            %img{:src => "http://lorempixel.com/50/50/people/6"}/
+          .commenterName
+            =link_to 'Firstname Lastname','#'
+            ,
+            %span.date.sub-text on March 5th, 2014
+          %br
+          .commentText
+            %p Hello this is a test comment.
+          .upvote
+            %span.count 0
+            %span.upvote
+            %span.downvote
+          %hr#comment-line
+        .answer
+          %li
+            .commenterImage
+              %img{:src => "http://lorempixel.com/50/50/people/7"}/
+            .commenterName
+              =link_to 'Firstname Lastname','#'
+              ,
+              %span.date.sub-text on March 5th, 2014
+            %br
+            .commentText
+              %p Hello this is a test comment and this comment is particularly very long and it goes on and on and on.
+            .upvote
+              %span.count 0
+              %span.upvote
+              %span.downvote
+            %hr#comment-line
+        %li
+          .commenterImage
+            %img{:src => "http://lorempixel.com/50/50/people/7"}/
+          .commenterName
+            =link_to 'Firstname Lastname','#'
+            ,
+            %span.date.sub-text on March 5th, 2014
+          %br
+          .commentText
+            %p Hello this is a test comment and this comment is particularly very long and it goes on and on and on.
+          .upvote
+            %span.count 0
+            %span.upvote
+            %span.downvote
+          %hr#comment-line
+        %li
+          .commenterImage
+            %img{:src => "http://lorempixel.com/50/50/people/7"}/
+          .commenterName
+            =link_to 'Firstname Lastname','#'
+            ,
+            %span.date.sub-text on March 5th, 2014
+          %br
+          .commentText
+            %p Hello this is a test comment and this comment is particularly very long and it goes on and on and on.
+          .upvote
+            %span.count 0
+            %span.upvote
+            %span.downvote
+          %hr#comment-line
+        %li
+          .commenterImage
+            %img{:src => "http://lorempixel.com/50/50/people/9"}/
+          .commenterName
+            =link_to 'Firstname Lastname','#'
+            ,
+            %span.date.sub-text on March 5th, 2014
+          %br
+          .commentText
+            %p Hello this is a test comment.
+          %hr#comment-line
+  .post-comment
+    %input.form-control{:placeholder => "Your comments", :type => "text"}
+      .attach-file
+        %label.btn.btn-default{:for => "my-file-selector"}
+          Attach file
+          %input#my-file-selector{:style => "display:none;", :type => "file"}
+        %select{"data-role" => "tagsinput", :multiple => ""}
+          %option{:value => "img1.png"} img1.png
+          %option{:value => "test.txt"} test.txt
+          %option{:value => "img2.png"} img2.png
+    .form-group
+      %button.btn.btn-default Post comment
+  %input#input-2.file{:type=>"file",:multiple=>"true", "data-show-upload"=>"false", "data-show-caption"=>"true"}
+
