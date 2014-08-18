@@ -23,6 +23,7 @@ gem 'acts_as_votable'
 gem 'jquery-star-rating-rails'
 gem 'carrierwave'
 gem 'twitter-bootstrap-rails'
+gem 'bootstrap-wysihtml5-rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
