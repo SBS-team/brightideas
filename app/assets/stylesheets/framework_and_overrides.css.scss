@@ -1,6 +1,11 @@
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('/assets/glyphicons-halflings-regular.eot');
+  src: url('/assets/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/glyphicons-halflings-regular.woff') format('woff'), url('/assets/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
 // import the CSS framework
 @import "bootstrap";
-
+@import "bootstrap-glyphicons";
 // make all images responsive by default
 img {
   @extend .img-responsive;
@@ -34,8 +39,7 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
-  padding-bottom: 80px;
+  padding-bottom: 0px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
   }

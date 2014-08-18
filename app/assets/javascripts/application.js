@@ -16,3 +16,7 @@
 //= require bootstrap
 //= require jquery-star-rating
 //= require_tree .
+//= require fileinput
+//= require star-rating
+//= require jquery.upvote
+//= require bootstrap-tagsinput

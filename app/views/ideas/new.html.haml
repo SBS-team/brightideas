@@ -5,10 +5,10 @@
   = f.label :description
   .form_description
     -#= f.text_area :description
-    = f.text_area :description, :class => "redactor", :rows => 20, :cols => 60
+    = f.text_area :description, :class => "redactor", :rows => 40, :cols => 120
   = f.fields_for :attachments do |p|
     .field
       = p.label :path
-      %br/
+      %br
       = p.file_field :path, :multiple => true, name: "attachments[path][]"
   = f.submit "Create"

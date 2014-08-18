@@ -31,3 +31,4 @@
       params.require(:idea).permit( :title, :description,  :attachments_attributes=>[:id, :idea_id, :path])
     end
  end
+
