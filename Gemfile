@@ -22,6 +22,7 @@ gem 'closure_tree'
 gem 'acts_as_votable'
 gem 'jquery-star-rating-rails'
 gem 'carrierwave'
+gem 'rmagick'
 gem 'twitter-bootstrap-rails'
 gem 'ckeditor_rails'
 group :development do
