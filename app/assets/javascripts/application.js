@@ -18,7 +18,7 @@
 //= require_tree .
 //= require fileinput.js
 //= require fileinput.min.js
-//= require bootstrap-wysihtml5
 //= require star-rating
 //= require jquery.upvote
 //= require bootstrap-tagsinput
+//= require ckeditor-jquery

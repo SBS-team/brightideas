@@ -37,8 +37,6 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.2.0.1)
       sass (~> 3.2)
-    bootstrap-wysihtml5-rails (0.3.2.100)
-      railties (>= 3.0)
     builder (3.2.2)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
@@ -46,6 +44,8 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
     choice (0.1.6)
+    ckeditor_rails (4.4.3)
+      railties (>= 3.0)
     closure_tree (5.0.0)
       activerecord (>= 3.2.0)
       with_advisory_lock (>= 3.0.0)
@@ -198,8 +198,8 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
-  bootstrap-wysihtml5-rails
   carrierwave
+  ckeditor_rails
   closure_tree
   coffee-rails (~> 4.0.0)
   devise

@@ -1,11 +1,11 @@
 = form_for(:idea, :url=> {action: "create"}) do |f|
-  = f.label :title
   .form_title
+    = f.label :title
     = f.text_field :title
   = f.label :description
   .form_description
     -#= f.text_area :description
-    = f.text_area :description, :class => "redactor", :rows => 40, :cols => 120
+    = f.text_area :description, :class => "redactor", :rows => 20, :cols => 120
   = f.fields_for :attachments do |p|
     .field
       = p.label :path
