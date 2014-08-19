@@ -11,53 +11,59 @@
     .well
       #myCarousel.carousel.slide{"data-interval" => "0", "data-ride" => "carousel"}
         .carousel-inner
-          .item.active
-            .row
-              .col-xs-3
-                %a{:href => "#x"}
-                  %img{:alt => "Image", :src => "http://placehold.it/250x250"}/
-              .col-xs-3
-                .attach-frame
-                  .attach-image
-                    %a{:href => "#x"}
-                      %img{:alt => "Image", :src => "http://placehold.it/250x250"}/
-              .col-xs-3
-                .attach-frame
-                  .attach-other
-                    %h2
-                      %i.glyphicon.glyphicon-file
-                    DCIM.zip
-              .col-xs-3
-                %a{:href => "#x"}
-                  %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          .item
-            .row
-              .col-xs-3
-                %a{:href => "#x"}
-                  %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-              .col-xs-3
-                %a{:href => "#x"}
-                  %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-              .col-xs-3
-                %a{:href => "#x"}
-                  %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-              .col-xs-3
-                %a{:href => "#x"}
-                  %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          .item
-            .row
-              .col-xs-3
-                %a{:href => "#x"}
-                  %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-              .col-xs-3
-                %a{:href => "#x"}
-                  %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-              .col-xs-3
-                %a{:href => "#x"}
-                  %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-              .col-xs-3
-                %a{:href => "#x"}
-                  %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
+          -first=true
+          -@idea.attachments.in_groups_of(4,false) do |file|
+            .item{:class=>('active' if first==true)}
+              .row
+                -file.each do |idea|
+                  .col-xs-3
+                    .attach-frame
+                      .attach-image
+                        %a{:href => "#x"}
+                          %img{:alt => "Image", :src =>"#{idea.path.url(:thumb)}"}
+            -first=false
+
+          -#    .col-xs-3
+          -#      .attach-frame
+          -#        .attach-image
+          -#          %a{:href => "#x"}
+          -#            %img{:alt => "Image", :src => "http://placehold.it/250x250"}/
+          -#    .col-xs-3
+          -#      .attach-frame
+          -#        .attach-other
+          -#          %h2
+          -#            %i.glyphicon.glyphicon-file
+          -#          DCIM.zip
+          -#    .col-xs-3
+          -#      %a{:href => "#x"}
+          -#        %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
+          -#.test.item.active.row
+          -#  .col-xs-3
+          -#    %a{:href => "#x"}
+          -#      %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
+          -#  .col-xs-3
+          -#    %a{:href => "#x"}
+          -#      %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
+          -#  .col-xs-3
+          -#    %a{:href => "#x"}
+          -#      %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
+          -#  .col-xs-3
+          -#    %a{:href => "#x"}
+          -#      %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
+          -#.item
+          -#  .row
+          -#    .col-xs-3
+          -#      %a{:href => "#x"}
+          -#        %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
+          -#    .col-xs-3
+          -#      %a{:href => "#x"}
+          -#        %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
+          -#    .col-xs-3
+          -#      %a{:href => "#x"}
+          -#        %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
+          -#    .col-xs-3
+          -#      %a{:href => "#x"}
+          -#        %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
       %a.left.carousel_control{"data-slide" => "prev", :href => "#myCarousel"} ‹
       %a.right.carousel_control{"data-slide" => "next", :href => "#myCarousel"} ›
   .idea-description
