@@ -1,7 +1,7 @@
 class UserInvitationsController < Devise::InvitationsController
   
   def edit
-    render :edit, :layout => false
+    render :edit, :layout => true
   end
 
   def update
