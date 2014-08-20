@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  ActiveAdmin.routes(self)
+  devise_for :users, :controllers => {:invitations => 'user_invitations'}
   root to: 'visitors#index'
+  resources :ideas
 end

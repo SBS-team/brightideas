@@ -1,0 +1,7 @@
+%h2 Send invitation
+= form_for @user, :url => send_invitation_admin_users_path do |f|
+  %table{style: "width: 50%"}
+    %tr
+      %td= f.label :email
+      %td= f.text_field :email, :required => true
+  = f.submit  "Send an Invitation"

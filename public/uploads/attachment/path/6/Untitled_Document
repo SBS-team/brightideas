@@ -1,0 +1,29 @@
+man ls 
+ls -la все каталоги c разришениями
+cd перейти в папку
+cd .. вернутся назад
+смена групы и владельца
+chown -R root:фамилия  ssh  //apach доступ
+ps   все процесcы
+ps aux grep name proces
+kill delete proces
+файл на экран 
+cut=> /путь/test
+chmod - R 7(владелиц)5(група)5(для всех)
+файл исполнеимым
++x /путь/файл
+
+копирование 
+copy копируемый_путь куда_путь
+rm -rf удалить форсировано все
+mb переместить_путь куда_путь
+ronch создать папку mkdir
+пакетный менеджер 
+sudo upt-get update обновить репозиторий
+sudo upt-get upgrade обновить програму
+sudo upt-get install установить
+dpkg -i name_program
+sudo upt-get install -f обновить зависимости
+clear очищает вывод
+
+

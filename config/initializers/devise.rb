@@ -1,3 +1,5 @@
+require 'devise_invitable'
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -6,11 +8,16 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = '39e2d99a74cbfa80d0a721c0ae9e51d5fc0f8aea1966dac8e82a2bf70faa64396112b9a06db57a9e316ac1bf376bcb86796dfff93d44d0e7da4dcef6ae5e4319'
 
+  config.invitation_limit = 256  
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+
+  #------------------------------------------------
+  config.mailer_sender = 'chaaat.chaaat@gmail.com'
+  #------------------------------------------------
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -20,6 +27,9 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
+
+  #Turns on scoped views for devise_invitable gem
+  config.scoped_views = true
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is

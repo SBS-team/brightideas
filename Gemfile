@@ -18,10 +18,16 @@ gem 'unicorn'
 gem 'unicorn-rails'
 gem 'devise'
 gem 'rails-erd'
-gem 'closure_tree'
+gem 'activeadmin', github: 'activeadmin/active_admin'
 gem 'acts_as_votable'
+gem 'devise_invitable', '~> 1.3.6'
+gem 'dotenv-rails', :groups => [:development, :test]
+gem 'closure_tree'
 gem 'jquery-star-rating-rails'
-
+gem 'carrierwave'
+gem 'twitter-bootstrap-rails'
+gem 'ckeditor_rails'
+gem 'rmagick'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

@@ -30,7 +30,23 @@ Rails.application.configure do
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: ENV["DOMAIN_NAME"],
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV["GMAIL_USERNAME"],
+      password: ENV["GMAIL_PASSWORD"]
+  }
+
+  config.action_mailer.default_url_options = {:host => "localhost:3000"}
+  config.action_mailer.perform_deliveries = true
+
+  #----------------------------------------
   config.assets.raise_runtime_errors = true
+  #----------------------------------------
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
