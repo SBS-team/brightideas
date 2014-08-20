@@ -1,4 +1,5 @@
 require 'devise_invitable'
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
@@ -29,7 +30,7 @@ Devise.setup do |config|
 
   #Turns on scoped views for devise_invitable gem
   config.scoped_views = true
-  
+
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for

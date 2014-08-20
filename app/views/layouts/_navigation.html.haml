@@ -8,6 +8,7 @@
         %span.icon-bar
         %span.icon-bar
       = link_to 'Home', root_path, class: 'navbar-brand'
+      = link_to 'Create idea', new_idea_path, :class => 'navbar-brand'
     .collapse.navbar-collapse
-      %ul.nav.navbar-nav
+      %ul.nav.navbar-nav.pull-right
         = render 'layouts/navigation_links'

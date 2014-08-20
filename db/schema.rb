@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20140814122602) do
 
   create_table "ideas", force: true do |t|
     t.string   "title",       default: "", null: false
-    t.string   "description"
+    t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
