@@ -1,0 +1,43 @@
+.auth-form
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'form-centered' }) do |f|
+    %h2 Sign up
+    = devise_error_messages!
+    .form-group
+      = f.label :first_name
+      %br/
+      = f.text_field :first_name, class: 'form-control'
+    .form-group
+      = f.label :last_name
+      %br/
+      = f.text_field :last_name, class: 'form-control'
+    .form-group
+      = f.label :rank_id
+      %br/
+      = f.select :rank_id, options_for_select(@ranks.each_with_index.map {|name, index| [name,index+1]}), {}, {:class => 'form-control'}
+    .form-group
+      = f.label :office_num
+      %br/
+      = f.select :office_num, options_for_select(@offices), {}, { :class => 'form-control' }
+    .form-group
+      = f.label :email
+      %br/
+      = f.email_field :email, class: 'form-control'
+    .form-group
+      = f.label :password
+      %br/
+      = f.password_field :password, class: 'form-control'
+    .form-group
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation, class: 'form-control'
+    .form-group
+      %div= f.submit 'Sign up', :class => 'btn btn-success'
+.site-description
+  %p
+    Saul, Saul... this man that we spoke of before, this... this person that you said could... could disappear me, get me a whole new life and make sure that I'm never found. Yeah I need him, Saul. Gus is gonna murder my whole family. I need this man now. Saul... now, Saul!
+  %p
+    Anything suspicious? Well... then should we go? Any uh... Cartel news these days? Seems like I'm always reading something or other in the paper.I don't want to talk about it. To you or anyone else. I'm done explaining myself. Gus is dead. We've got work to do.
+  %p
+    Jesse Jackson? Do you even... ah, I see you have a telephone at least. You know that blinking thing I've been calling you on? I will break this, I will BREAK THIS. Damn druggie idiot. Is this what you've been doing the whole time I've been trying to reach you?
+  %p
+    The game has changed. The word is out. And you... are a killer. Apparently it's all over town. Somebody crossed you, you got angry, you crushed their skull with an ATM machine. Who cares! Just as long as it's our competitors who believe it and not the police.

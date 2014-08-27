@@ -1,0 +1,132 @@
+// Place all the styles related to the ideas controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.idea-image {
+  width:100%;
+  height:150px;
+}
+.idea-title {
+  position: absolute;
+  margin-top:50px;
+  margin-left:200px;
+  font-size:30px;
+}
+.idea-owner {
+  position: absolute;
+  width:auto;
+  margin: 0px 10px 0px 10px;
+}
+.idea-owner img{
+  margin-left: 0px;
+  margin-top:10px;
+  width: 120px;
+  border: 2px black solid;
+}
+.owner-name a{
+  width: 100%;
+  color: black;
+}
+
+.attach-item{
+  position: absolute;
+  border: 2px black solid;
+  width: 100px;
+  height: 100px;
+  left: 40px;
+}
+.idea-description{
+  width:auto;
+}
+.star-rating.rating-md.rating-active{
+  float:right;
+  font-size: 30px;
+}
+.star-rating.rating-md.rating-active .caption{
+  float:left;
+  padding-top: 10px;
+  padding-right: 5px;
+}
+.comments{
+  border: 2px black solid;
+  margin-top: 50px;
+}
+.file-preview-thumbnails{
+  border: 2px black solid;
+  height: auto;
+  text-align: center;
+}
+.file-preview-thumbnails span{
+  font-size:50px;
+  height: auto;
+  text-align: center;
+}
+.col-xs-3 img{
+  min-height: 50px;
+  min-width: 50px;
+}
+
+.new_idea {
+  margin-top: 75px;
+}
+//@media screen and (max-width: 640px) {
+//  /* STYLES HERE for BROWSER WINDOWS with a max-width of 480px. This will work on desktops when the window is narrowed.  */
+//  //  .col-xs-3{
+//  //    margin-left: 5px;
+//  //    margin-right: 5px;
+//  //  }
+//  //  .well {
+//  //    margin: 0 10px -10px 0px !important;
+//  //  }
+//  .file-preview-thumbnails{
+//    border: 2px red solid;
+//
+//  }
+//}
+.attach-frame:hover {
+  background-color: #eee;
+  box-shadow: 2px 2px 5px 0px #333;
+}
+
+.attach-frame{
+//  display: table;
+  border: 1px solid #ddd;
+  box-shadow: 1px 1px 5px 0px #a2958a;
+  position: relative;
+  width: 100%;
+//  padding-bottom: 100%;
+  float: left;
+  height: auto;
+  text-align: center;
+  vertical-align: middle;
+}
+.attach-other{
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  vertical-align: middle;
+  text-align: center;
+//  font-size: 50px;
+  padding: 8px;
+
+}
+.attach-image {
+//  display: table-cell;
+  width: 100%;
+  height: auto;
+//  position: absolute;
+  vertical-align: text-center;
+  padding: 8px;
+}
+
+
+//#idea_title{
+//  width: 50%;
+//  border: 2px solid #555555;
+//}
+//.form_title{
+//  margin-left:200px;
+//
+//}
