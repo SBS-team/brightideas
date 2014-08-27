@@ -28,6 +28,10 @@ gem 'carrierwave'
 gem 'twitter-bootstrap-rails'
 gem 'ckeditor_rails'
 gem 'rmagick'
+gem 'capistrano', '~> 3.2.0'
+gem 'capistrano-bundler'
+gem 'capistrano-rvm'
+gem 'capistrano-rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
