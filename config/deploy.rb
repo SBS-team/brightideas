@@ -40,7 +40,8 @@ set :linked_files, %w{config/database.yml .env config/unicorn.rb}
 
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :unicorn_conf, "#{fetch(:deploy_to)}/current/config/unicorn.rb"
-set :unicorn_pid, "#{fetch(:deploy_to)}/shared/tmp/pids/unicorn.pid"
+set :unicorn_pid, "#{fetch(:deploy_to)}/shared/pids/unicorn.pid"
+#set :unicorn_pid, "#{fetch(:deploy_to)}/shared/tmp/pids/unicorn.pid"
 
 # Default value for default_env is {}
 set :default_env, { path: "/opt/ruby/bin:$PATH" }
