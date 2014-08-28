@@ -80,4 +80,3 @@ pickle-email-*.html
 .powenv
 
 /config/database.yml
-/config/secrets.yml
