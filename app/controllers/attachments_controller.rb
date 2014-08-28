@@ -1,8 +1,7 @@
 class AttachmentsController < ApplicationController
   def create
-    puts '---' * 15
+
     @upload = Attachment.new(attachment_params)
-    puts @upload.inspect
 
     respond_to do |format|
       if @upload.save
@@ -19,8 +18,18 @@ class AttachmentsController < ApplicationController
     end
   end
 
+  def destroy
+    @attacmnet = Attachment.find(params[:id])
+    @attacmnet.destroy
+
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.json { head :no_content }
+    end
+  end
+
   private
   def attachment_params
-    params.require(:attachment).permit(:path, :tempfile, :original_filename, :content_type, :headers, :name, :filename)
+    params.require(:attachment).permit(:path, :tempfile, :original_filename, :content_type, :headers, :filename)
   end
 end

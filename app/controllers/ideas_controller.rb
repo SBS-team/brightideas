@@ -38,7 +38,7 @@
 
     private
     def idea_params
-      params.require(:idea).permit( :title, :description)
+      params.require(:idea).permit( :title, :description, :avatar_id)
     end
  end
 

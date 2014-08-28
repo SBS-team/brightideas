@@ -13,13 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ckeditor-jquery
+//= require jquery-fileupload
 //= require bootstrap
 //= require jquery-star-rating
 //= require_tree .
-////= require fileinput.js
-////= require fileinput.min.js
 //= require star-rating
 //= require jquery.upvote
 //= require bootstrap-tagsinput
-//= require ckeditor-jquery
-//= require jquery-fileupload
