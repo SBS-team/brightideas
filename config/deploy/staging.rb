@@ -1,5 +1,5 @@
 set :stage, :staging
-set :branch, 'develop'
+set :branch, 'test_deploy'
 
 # Simple Role Syntax
 # ==================
