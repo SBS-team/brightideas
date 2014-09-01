@@ -30,7 +30,7 @@
         %span.btn.btn-success.fileinput-button
           %i.icon-plus.icon-white
           %span Add files
-          =f.file_field :path
+          =f.file_field :path, :multiple => true
         %reset.btn.btn-warning.cancel
           %i.glyphicon.glyphicon-ban-circle.icon-white
           %span Cancel upload

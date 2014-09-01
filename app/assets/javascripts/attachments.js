@@ -10,6 +10,7 @@ $(document).ready(function(){
         downloadTemplateId: "template-download-avatar",
         uploadTemplateId: "template-upload-avatar",
         dataType: "json",
+        paramName: 'attachment[path]',
         completed: function(e,data){
             $('#avatar').val(data.result.files[0].attachment_id);
         }
@@ -28,7 +29,8 @@ $(document).ready(function(){
     $('#fileupload').fileupload({
         maxFileSize: 31457280,
         maxNumberOfFiles: 10,
-        dropZone: $('#fileupload')
+        dropZone: $('#fileupload'),
+        paramName: 'attachment[path]'
     })
         .bind('fileuploadstopped', function (e, data) {
            IdeaCreate();

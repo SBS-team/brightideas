@@ -30,6 +30,6 @@ class AttachmentsController < ApplicationController
 
   private
   def attachment_params
-    params.require(:attachment).permit(:path, :tempfile, :original_filename, :content_type, :headers, :filename)
+    params.require(:attachment).permit(:path)
   end
 end
