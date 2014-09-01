@@ -16,7 +16,6 @@
 //= require ckeditor-jquery
 //= require jquery-fileupload
 //= require bootstrap
-//= require avatar_uploader
 //= require jquery-star-rating
 //= require star-rating
 //= require jquery.upvote
