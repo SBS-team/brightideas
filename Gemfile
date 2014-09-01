@@ -32,6 +32,8 @@ gem 'capistrano', '~> 3.2.0'
 gem 'capistrano-bundler'
 gem 'capistrano-rvm'
 gem 'capistrano-rails'
+gem 'jquery-fileupload-rails'
+gem 'russian'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

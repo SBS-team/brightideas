@@ -1,15 +1,47 @@
 .new_idea
-  = form_for(:idea, :url=> {action: "create"}) do |f|
-    .form_title
-      = f.label :title
-      = f.text_field :title
-    = f.label :description
-    .form_description
-      -#= f.text_area :description
-      = f.text_area :description, :class => "redactor", :rows => 20, :cols => 120
-    = f.fields_for :attachments do |p|
-      .field
-        = p.label :path
-        %br
-        = p.file_field :path, :multiple => true, name: "attachments[path][]"
-    = f.submit "Create"
+  %h2 New idea
+  %label Title
+  %input.form-control{ :id => "title" }
+  %label Avatar
+  %input{:type => 'hidden', :id => 'avatar'}
+  = form_for  Attachment.new, :html => { :id => "avatarupload" }, :class => "fileupload" do |d|
+    .fileupload-buttonbar
+      .span7
+        %span.btn.btn-success.fileinput-button
+          %i.icon-plus.icon-white
+          %span Choose avatar
+          =d.file_field :path
+      .span5
+        .progress.progress-success.progress-striped.active.fade
+          .bar{:style => "width:0;"}
+    .fileupload-loading
+    %br
+    %table.table.table-striped
+      %tbody.files{:data=> {:toggle => 'modal-gallery', :target=> '#modal-gallery'}}
+  %br
+  %label Description
+  %textarea.form-control{ :id => "description" }
+  %br
+  %label Attachments
+  %input{:type => "hidden", :id => "attachments"}
+  = form_for  Attachment.new, :html => { :id => "fileupload" } , :class => "fileupload" do |f|
+    .fileupload-buttonbar
+      .span7
+        %span.btn.btn-success.fileinput-button
+          %i.icon-plus.icon-white
+          %span Add files
+          =f.file_field :path
+        %reset.btn.btn-warning.cancel
+          %i.glyphicon.glyphicon-ban-circle.icon-white
+          %span Cancel upload
+      .span5
+        .progress.progress-success.progress-striped.active.fade
+          .bar{:style => "width:0;"}
+    .fileupload-loading
+    %br
+    %table.table.table-striped
+      %tbody.files{:data=> {:toggle => 'modal-gallery', :target=> '#modal-gallery'}}
+    .fileupload-buttonbar
+      %button.btn.btn-success.start.btn-large{ :id=>"post_idea" } Post idea
+
+=render :partial => "ideas/new"
