@@ -15,8 +15,13 @@ $(document).ready(function(){
         }
     });
     $("#post_idea").click(function(){
-        if($("#fileupload .template-upload .bar").length == 0){
-            IdeaCreate();
+        if(isValid()) {
+            if ($("#fileupload .template-upload .bar").length == 0) {
+                IdeaCreate();
+            }
+        }
+        else{
+            ShowError();
         }
     });
 //    $('#fileupload').on('submit',true);
@@ -43,5 +48,17 @@ $(document).ready(function(){
         }, function(data){
             window.location.pathname = '/ideas/' + data.id;
         }, "json");
+    }
+
+    function isValid(){
+        return ($("#title").val()!="" && $('.cke_wysiwyg_frame').contents().find('body').text()!="");
+    }
+
+    function ShowError(){
+        $('.alert').remove();
+        $('.container').last().prepend(
+            "<div class='alert alert-danger'><a class='close' data-dismiss='alert'>×</a>" +
+                "<span>Title and description can't be blank!</span></div>"
+        );
     }
 });

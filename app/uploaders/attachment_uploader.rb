@@ -4,7 +4,7 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
-
+  CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -32,7 +32,11 @@ class AttachmentUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb, :if => :image? do
-    process :resize_to_fit => [65, 65]
+    process :resize_to_fill => [100, 100]
+  end
+
+  version :thumb_200x200, :if => :image? do
+    process :resize_to_fill => [200, 200]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

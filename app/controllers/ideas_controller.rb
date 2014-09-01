@@ -27,13 +27,13 @@
         format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
         format.json {render :json => @idea  }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'new', notice: "Title and description can't be blank!" }
       end
       end
     end
 
     def index
-      @attachments = Attachment.all
+      @idea = Idea.all
     end
 
     private

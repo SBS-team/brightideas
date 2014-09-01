@@ -29,7 +29,6 @@ gem 'twitter-bootstrap-rails'
 gem 'ckeditor_rails'
 gem 'rmagick'
 gem 'jquery-fileupload-rails'
-gem 'russian'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

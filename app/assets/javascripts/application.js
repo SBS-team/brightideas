@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.dotdotdot.min
 //= require turbolinks
 //= require ckeditor-jquery
 //= require jquery-fileupload

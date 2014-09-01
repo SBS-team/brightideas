@@ -3,4 +3,5 @@ class Idea < ActiveRecord::Base
   has_many   :attachments
   belongs_to :user
   accepts_nested_attributes_for  :attachments
+  validates_presence_of :title, :description
 end

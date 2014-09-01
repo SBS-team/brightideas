@@ -1,0 +1,23 @@
+.col-md-3.col-sm-6.col-xs-12.col-link
+  .thumbnail
+    -if !idea.avatar_id.nil?
+      =image_tag Attachment.find(idea.avatar_id).path.thumb_200x200.url, :class => "p-bot-5"
+    -else
+      =image_tag '/img/no_image_available_thumb.jpg', :class => "p-bot-5"
+    .caption.bg-lightcyan.idea-preview-caption
+      %div
+        %h4.clip.idea-title
+          =link_to idea.title, idea, :title => idea.title, :class => 'idea-title'
+        .idea-description
+          =idea.description.html_safe
+      %div{ :align => "right" }
+        %span.btn-lg
+          %i.glyphicon.glyphicon-comment.icon-cornflowerblue
+          %span.badge
+            =idea.comments.count
+        %i.glyphicon.glyphicon-star.icon-gold
+        %span.badge
+          5
+      %div
+        by
+        =link_to idea.user.first_name + " " + idea.user.first_name, idea.user
