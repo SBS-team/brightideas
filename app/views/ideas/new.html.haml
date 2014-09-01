@@ -1,0 +1,47 @@
+.new_idea
+  %h2 New idea
+  %label Title
+  %input.form-control{ :id => "title" }
+  %label Avatar
+  %input{:type => 'hidden', :id => 'avatar'}
+  = form_for  Attachment.new, :html => { :id => "avatarupload" }, :class => "fileupload" do |d|
+    .fileupload-buttonbar
+      .span7
+        %span.btn.btn-success.fileinput-button
+          %i.icon-plus.icon-white
+          %span Choose avatar
+          =d.file_field :path
+      .span5
+        .progress.progress-success.progress-striped.active.fade
+          .bar{:style => "width:0;"}
+    .fileupload-loading
+    %br
+    %table.table.table-striped
+      %tbody.files{:data=> {:toggle => 'modal-gallery', :target=> '#modal-gallery'}}
+  %br
+  %label Description
+  %textarea.form-control{ :id => "description" }
+  %br
+  %label Attachments
+  %input{:type => "hidden", :id => "attachments"}
+  = form_for  Attachment.new, :html => { :id => "fileupload" } , :class => "fileupload" do |f|
+    .fileupload-buttonbar
+      .span7
+        %span.btn.btn-success.fileinput-button
+          %i.icon-plus.icon-white
+          %span Add files
+          =f.file_field :path
+        %reset.btn.btn-warning.cancel
+          %i.glyphicon.glyphicon-ban-circle.icon-white
+          %span Cancel upload
+      .span5
+        .progress.progress-success.progress-striped.active.fade
+          .bar{:style => "width:0;"}
+    .fileupload-loading
+    %br
+    %table.table.table-striped
+      %tbody.files{:data=> {:toggle => 'modal-gallery', :target=> '#modal-gallery'}}
+    .fileupload-buttonbar
+      %button.btn.btn-success.start.btn-large{ :id=>"post_idea" } Post idea
+
+=render :partial => "ideas/new"

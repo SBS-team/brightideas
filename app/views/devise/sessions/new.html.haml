@@ -1,0 +1,12 @@
+.container
+  .row
+    .col-md-12
+      #sign-in-form
+        #triangle
+        .sign-form-title
+          %h1 Sign in
+        .auth-form
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            = f.email_field :email, autofocus: true, class: 'input-field', :placeholder => 'Email'
+            = f.password_field :password, autocomplete: 'off', class: 'input-field', :placeholder => 'Password'
+            %div= f.submit 'Sign in', :class => 'btn-auth'

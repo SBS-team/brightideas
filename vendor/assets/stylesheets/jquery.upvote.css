@@ -1,0 +1,45 @@
+
+.upvote {
+    float: right;
+    margin:-20px 0px;
+    cursor: pointer;
+    color: #9d9d9d;
+}
+
+
+div.upvote span{
+    overflow: hidden;
+    display: inline;
+    margin: 0 auto;
+    width: 41px;
+    height: 25px;
+}
+
+div.upvote span.count {
+    font-size: 20px;
+    font-family: Arial, Liberation, Sans, DejaVu Sans, sans-serif;
+    color: #555;
+    line-height: 1;
+}
+
+.upvote .upvote:before{
+    font-family: 'icomoon';
+    top:0;
+    content: "\e720";
+    margin-right: 10px;
+
+}
+
+.upvote .downvote:before{
+    margin-left: 10px;
+    margin-right: 8px;
+    font-family: 'icomoon';
+    top:0;
+    content: "\e724";
+}
+.downvote.upvote-enabled.downvote-on{
+    color:red;
+}
+.upvote.upvote-on{
+    color:green;
+}

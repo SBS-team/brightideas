@@ -1,0 +1,78 @@
+.auth-form {
+  padding: 0% 2%;
+  background:#f0f0f0;
+  border-radius: 5px;
+}
+
+.input-field {
+  width:100%;
+  color:#555;
+  padding: 2%;
+  background:#fff;
+  margin: 1% 0% 3% 0%;
+  border:1px solid #ccc;
+}
+
+.btn-auth:hover{
+  background:#2288bb;
+}
+
+.btn-auth {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  background:#3399cc;
+}
+
+.input-field, .btn-auth {
+  font-size: 120%;
+}
+
+#triangle {
+  width: 5px;
+  margin: 0px auto;
+  border-top: 12px solid transparent;
+  border-right:12px solid transparent;
+  border-bottom: 12px solid #3399cc;
+  border-left:12px solid transparent;
+}
+
+.sign-form-title {
+  height: 50px;
+  background:#3399cc;
+}
+
+.sign-form-title h1 {
+  color:#fff;
+  margin: 0px;
+  padding: 2% 0%;
+  font-size: 150%;
+  font-weight: 300;
+  text-align:center;
+}
+
+
+.site-description p{
+}
+
+#sign-in-form{
+  width: 50%;
+  margin: auto;
+}
+
+.avatar-box {
+  width: 110px;
+  height: 110px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid #DDD;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+
+.avatar-box img {
+  margin: 5px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
