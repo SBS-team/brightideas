@@ -1,0 +1,7 @@
+%div
+  -if %w{jpg png jpg gif bmp}.include? attachment.path.file.extension
+    =image_tag attachment.path.thumb.url
+  -else
+    =image_tag '/'
+  %span
+    =attachment.read_attribute(:path)

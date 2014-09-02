@@ -1,74 +1,15 @@
 .container
-  .idea-head
-    .idea-owner
-      %img{src: '../img/all-users.png',class:'owner-image'}
-      .owner-name
-        =link_to 'Firstname Lastname','#'
-    .idea-title
-      =@idea.title
-    %img{src: '../img/none.png',class:'idea-image'}
-  .col-md-12
-    .well
-      #myCarousel.carousel.slide{"data-interval" => "0", "data-ride" => "carousel"}
-        .carousel-inner
-          -first=true
-          -@idea.attachments.in_groups_of(4,false) do |file|
-            .item{:class=>('active' if first==true)}
-              .row
-                -file.each do |idea|
-                  .col-xs-3
-                    .attach-frame
-                      .attach-image
-                        %a{:href => "#x"}
-                          %img{:alt => "Image", :src =>"#{idea.path.url(:thumb)}"}
-            -first=false
-
-          -#    .col-xs-3
-          -#      .attach-frame
-          -#        .attach-image
-          -#          %a{:href => "#x"}
-          -#            %img{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#    .col-xs-3
-          -#      .attach-frame
-          -#        .attach-other
-          -#          %h2
-          -#            %i.glyphicon.glyphicon-file
-          -#          DCIM.zip
-          -#    .col-xs-3
-          -#      %a{:href => "#x"}
-          -#        %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#.test.item.active.row
-          -#  .col-xs-3
-          -#    %a{:href => "#x"}
-          -#      %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#  .col-xs-3
-          -#    %a{:href => "#x"}
-          -#      %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#  .col-xs-3
-          -#    %a{:href => "#x"}
-          -#      %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#  .col-xs-3
-          -#    %a{:href => "#x"}
-          -#      %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#.item
-          -#  .row
-          -#    .col-xs-3
-          -#      %a{:href => "#x"}
-          -#        %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#    .col-xs-3
-          -#      %a{:href => "#x"}
-          -#        %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#    .col-xs-3
-          -#      %a{:href => "#x"}
-          -#        %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#    .col-xs-3
-          -#      %a{:href => "#x"}
-          -#        %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-      %a.left.carousel_control{"data-slide" => "prev", :href => "#myCarousel"} ‹
-      %a.right.carousel_control{"data-slide" => "next", :href => "#myCarousel"} ›
-  .idea-description
-    =@idea.description
+  .panel.panel-info
+    .panel-heading
+      %h2.idea-title
+        =@idea.title
+    .panel-body
+      =@idea.description.html_safe
+    .panel-footer
+      %h4 Attachments:
+      = render partial: @idea.attachments
   %input#input-2.rating{"data-max" => "5", "data-min" => "0","data-show-clear"=>"false", "data-step" => "0.1"}
+
   .detailBox
     .actionBox
       %ul.commentList
