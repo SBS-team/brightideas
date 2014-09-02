@@ -1,15 +1,34 @@
 .container
-  .panel.panel-info
-    .panel-heading
-      %h2.idea-title
-        =@idea.title
-    .panel-body
-      =@idea.description.html_safe
-    .panel-footer
-      %h4 Attachments:
-      = render partial: @idea.attachments
-  %input#input-2.rating{"data-max" => "5", "data-min" => "0","data-show-clear"=>"false", "data-step" => "0.1"}
-
+  .row
+    .panel.panel-info
+      .panel-heading
+        .row
+          .col-md-2
+            -if !@idea.avatar_id.nil?
+              =image_tag Attachment.find(@idea.avatar_id).path.thumb.url, :class => "p-bot-5"
+            -else
+              =image_tag '/img/no_image_available_thumb.jpg', :class => "p-bot-5", :width => 100, :height => 100
+          .col-md-10
+            %h2.idea-title
+              =@idea.title
+        .row
+          .pull-right{ :style => 'padding-right:15px;' }
+            =link_to @idea.user do
+              = image_tag(current_user.avatar.small_avatar.url, :class => 'img-circle')
+              =@idea.user.first_name + " " + @idea.user.last_name
+            at
+            =@idea.created_at.strftime('%d-%m-%Y, %I:%M')
+      .panel-body
+        =@idea.description.html_safe
+      -if !@idea.attachments.empty?
+        .panel-footer
+          %h4 Attachments:
+          .row
+            =render partial: @idea.attachments
+  .row
+    .pull-right
+      %input#input-rating.rating{"data-max" => "5", "data-min" => "0","data-show-clear"=>"false", "data-step" => "0.1",
+                                  :value => @idea.ratings.average(:rate)}
   .detailBox
     .actionBox
       %ul.commentList
@@ -98,3 +117,5 @@
     .post-button
       %button.btn.btn-default Post comment
   %input#input-2.file{:type=>"file",:multiple=>"true", "data-show-upload"=>"false", "data-show-caption"=>"true"}
+
+=javascript_include_tag 'rating'

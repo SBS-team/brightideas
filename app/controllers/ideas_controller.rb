@@ -34,15 +34,29 @@ class IdeasController < ApplicationController
     end
   end
 
+
   def index
       @idea = Idea.all
-   end
+  end
+
+  def set_rating
+    @rating =  Rating.find_or_initialize_by(:idea_id => params[:id], :user_id => current_user.id)
+    @rating.rate = params[:rate]
+    @rating.save
+    respond_to do |format|
+      format.html {redirect_to :back}
+    end
+  end
+
+
 
 
   private
   def idea_params
     params.require(:idea).permit( :title, :description, :avatar_id)
   end
+
+
 
 
  end

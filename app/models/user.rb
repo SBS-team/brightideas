@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many   :tags
   has_many   :comments
   belongs_to :rank
+  has_many   :ratings
 
   mount_uploader :avatar, AvatarUploader
 

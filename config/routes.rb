@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :users
   resources :attachments
   resources :users
+
+  post '/ideas/:id/rating' => 'ideas#set_rating', :as => 'set_idea_rating'
 end
