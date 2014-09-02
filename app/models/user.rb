@@ -10,7 +10,10 @@ class User < ActiveRecord::Base
   end
 
   has_many   :ideas
+  has_many   :tags
   has_many   :comments
   belongs_to :rank
+
+  mount_uploader :avatar, AvatarUploader
 
 end

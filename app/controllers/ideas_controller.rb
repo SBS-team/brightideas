@@ -1,19 +1,21 @@
- class IdeasController < ApplicationController
-   before_filter :authenticate_user!
-    def show
-     @idea = Idea.find(params[:id])
-     @attachments = @idea.attachments.all
+class IdeasController < ApplicationController
+  before_filter :authenticate_user!
 
-    end
-    def new
-      @idea = Idea.new
-      @attachments = @idea.attachments.build
-    end
-    def create
-      @idea = Idea.new(idea_params)
-      @idea.user_id = current_user.id
+  def show
+   @idea = Idea.find(params[:id])
+   @attachments = @idea.attachments.all
+  end
 
-      respond_to do |format|
+  def new
+    @idea = Idea.new
+    @attachments = @idea.attachments.build
+  end
+
+  def create
+    @idea = Idea.new(idea_params)
+    @idea.user_id = current_user.id
+
+    respond_to do |format|
       if @idea.save
         if !params[:attachments].blank?
           @attachments = params[:attachments].split(' ')
@@ -29,16 +31,19 @@
       else
         format.html { render action: 'new', notice: "Title and description can't be blank!" }
       end
-      end
     end
+  end
 
-    def index
+  def index
       @idea = Idea.all
-    end
+   end
 
-    private
-    def idea_params
-      params.require(:idea).permit( :title, :description, :avatar_id)
-    end
+
+  private
+  def idea_params
+    params.require(:idea).permit( :title, :description, :avatar_id)
+  end
+
+
  end
 
