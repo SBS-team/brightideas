@@ -24,16 +24,17 @@ gem 'devise_invitable', '~> 1.3.6'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'closure_tree'
 gem 'jquery-star-rating-rails'
-gem 'carrierwave'
 gem 'twitter-bootstrap-rails'
 gem 'ckeditor_rails'
 gem 'rmagick'
+gem 'carrierwave'
 gem 'capistrano', '~> 3.2.0'
 gem 'capistrano-bundler'
 gem 'capistrano-rvm'
 gem 'capistrano-rails'
 gem 'jquery-fileupload-rails'
 gem 'russian'
+gem 'activerecord-reset-pk-sequence'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

@@ -17,7 +17,8 @@
       .auth-form
         = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'form-centered' }) do |f|
           = devise_error_messages!
-          .avatar-box
+          .avatar-box-small
+            = image_tag('', :class => 'user-avatar')
           = f.file_field :avatar, :class => 'avatar-field'
           = f.text_field :first_name, class: 'input-field', :placeholder => 'First name'
           = f.text_field :last_name,  class: 'input-field', :placeholder => 'Last name'
@@ -27,3 +28,5 @@
           = f.password_field :password, class: 'input-field', :placeholder => 'Password'
           = f.password_field :password_confirmation, class: 'input-field', :placeholder => 'Password confirmation'
           %div= f.submit 'Sign up', :class => 'btn-auth'
+
+= javascript_include_tag('avatar_preview')

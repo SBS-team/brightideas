@@ -1,3 +1,46 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.img-circle{
+  border-radius: 50%;
+}
+
+.change-avatar {
+  margin-right: 5%;
+}
+
+.avatar-box-big {
+  width: 150px;
+  height: 170px;
+  background: #DDD;
+  display: inline-block;
+  border-radius: 10%;
+  border: 1px solid #DDD;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+}
+
+.avatar-box-big img {
+  width: 140px;
+  height: 140px;
+  margin: 4px;
+  border-radius: 10%;
+  -moz-border-radius: 10%;
+  -webkit-border-radius: 10%;
+}
+
+.user-name {
+  margin-top: 3%;
+  font-size: 24px;
+}
+
+.user-post {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.last-activity {
+  font-size: 12px;
+  color: grey;
+}

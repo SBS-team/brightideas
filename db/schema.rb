@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140829132815) do
+ActiveRecord::Schema.define(version: 20140902083017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,10 +77,16 @@ ActiveRecord::Schema.define(version: 20140829132815) do
     t.datetime "updated_at"
   end
 
+  create_table "tags", force: true do |t|
+    t.string   "name",       default: "", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
   create_table "users", force: true do |t|
     t.string   "first_name",             default: "", null: false
     t.string   "last_name",              default: "", null: false
-    t.integer  "rank_id"
     t.string   "email",                  default: "", null: false
     t.string   "office_num",             default: "", null: false
     t.string   "encrypted_password",     default: ""
@@ -103,6 +109,7 @@ ActiveRecord::Schema.define(version: 20140829132815) do
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
     t.string   "avatar"
+    t.integer  "rank_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
