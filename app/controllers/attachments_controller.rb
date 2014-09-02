@@ -1,6 +1,6 @@
 class AttachmentsController < ApplicationController
-  def create
 
+  def create
     @upload = Attachment.new(attachment_params)
 
     respond_to do |format|
@@ -32,4 +32,5 @@ class AttachmentsController < ApplicationController
   def attachment_params
     params.require(:attachment).permit(:path)
   end
+
 end

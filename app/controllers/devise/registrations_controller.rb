@@ -16,6 +16,9 @@ class Devise::RegistrationsController < DeviseController
   # POST /resource
   def create
     build_resource(sign_up_params)
+    puts '--------------------------'
+    puts sign_up_params
+    puts '--------------------------'
 
     resource_saved = resource.save
     yield resource if block_given?

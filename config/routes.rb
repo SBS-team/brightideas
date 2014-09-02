@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:invitations => 'user_invitations'}
   root to: 'ideas#index'
   resources :ideas
+  resources :users
   resources :attachments
   resources :users
 end

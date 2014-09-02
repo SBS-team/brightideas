@@ -1,4 +1,4 @@
- require 'carrierwave'
+require 'carrierwave'
 
 class Attachment < ActiveRecord::Base
 	belongs_to :idea
@@ -18,4 +18,5 @@ class Attachment < ActiveRecord::Base
         "attachment_id" => self.id
     }
   end
+
 end
