@@ -5,7 +5,7 @@
         .row
           .col-md-2
             -if !@idea.avatar_id.nil?
-              =image_tag Attachment.find(@idea.avatar_id).path.thumb_200x200.url, :class => "p-bot-5", :size => '150x150'
+              =image_tag get_idea_avatar(@idea), :class => "p-bot-5", :size => '150x150'
             -else
               =image_tag '/img/no_image_available_thumb.jpg', :class => "p-bot-5", :width => 100, :height => 100
           .col-md-10
@@ -33,7 +33,7 @@
   .row
     .pull-right
       %input#input-rating.rating{"data-max" => "5", "data-min" => "0","data-show-clear"=>"false", "data-step" => "0.1",
-                                  :value => !@idea.ratings.average(:rate).nil? ? @idea.ratings.average(:rate).round(2): 0 }
+                                  :value => get_idea_rating(@idea)}
   -if(!@idea.comments.empty?)
     .row
       .detailBox
