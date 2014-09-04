@@ -24,8 +24,9 @@ div.upvote span.count {
 
 .upvote .upvote:before{
     font-family: 'icomoon';
+    font-size: 20px;
     top:0;
-    content: "\e720";
+    content: "\e6d4";
     margin-right: 10px;
 
 }
@@ -34,8 +35,9 @@ div.upvote span.count {
     margin-left: 10px;
     margin-right: 8px;
     font-family: 'icomoon';
+    font-size: 20px;
     top:0;
-    content: "\e724";
+    content: "\e6d5";
 }
 .downvote.upvote-enabled.downvote-on{
     color:red;

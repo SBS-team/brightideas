@@ -19,8 +19,8 @@ class AttachmentsController < ApplicationController
   end
 
   def destroy
-    @attacmnet = Attachment.find(params[:id])
-    @attacmnet.destroy
+    @attachment = Attachment.find(params[:id])
+    @attachment.destroy
 
     respond_to do |format|
       format.html { redirect_to :back }

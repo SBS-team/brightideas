@@ -5,6 +5,7 @@
 .idea-image {
   width:100%;
   height:150px;
+  border-radius: 20%;
 }
 .idea-owner {
   position: absolute;
@@ -22,13 +23,13 @@
   color: black;
 }
 
-.attach-item{
-  position: absolute;
-  border: 2px black solid;
-  width: 100px;
-  height: 100px;
-  left: 40px;
+.attach-item img{
+  border-radius: 4px;
 }
+.attach-item{
+  text-align: center;
+}
+
 .idea-description{
   height: 120px;
 }
@@ -37,7 +38,6 @@
   max-height: 100px;
   max-width: 80px;
 }
-
 
 
 .idea-preview{
@@ -59,16 +59,7 @@
   border: 2px black solid;
   margin-top: 50px;
 }
-.file-preview-thumbnails{
-  border: 2px black solid;
-  height: auto;
-  text-align: center;
-}
-.file-preview-thumbnails span{
-  font-size:50px;
-  height: auto;
-  text-align: center;
-}
+
 .clip{
   overflow: hidden;
   white-space: nowrap;
@@ -93,6 +84,9 @@
 .idea-title{
   color: #000000;
   text-align: center;
+}
+.text-left{
+  text-align: left;
 }
 
 .col-link:hover{

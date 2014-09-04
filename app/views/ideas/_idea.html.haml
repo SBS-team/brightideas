@@ -17,7 +17,7 @@
             =idea.comments.count
         %i.glyphicon.glyphicon-star.icon-gold
         %span.badge
-          5
+          =!idea.ratings.average(:rate).nil? ? idea.ratings.average(:rate).round(2): 0
       %div
         by
-        =link_to idea.user.first_name + " " + idea.user.first_name, idea.user
+        =link_to idea.user.first_name + " " + idea.user.last_name, idea.user

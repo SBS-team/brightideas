@@ -1,9 +1,10 @@
 .col-lg-2
-  %div
-    -if %w{jpg png jpg gif bmp}.include? attachment.path.file.extension
-      =image_tag attachment.path.thumb.url
-    -else
-      =image_tag '/img/file.gif'
-  %div
-    %span
-      =attachment.read_attribute(:path)
+  .attach-item
+    =link_to  attachment.path.url do
+      -if %w{jpg png jpg gif bmp}.include? attachment.path.file.extension
+        =image_tag attachment.path.thumb.url
+      -else
+        =image_tag '/img/file.gif'
+      .clip
+        %span{:title => attachment.read_attribute(:path)}
+          =attachment.read_attribute(:path)

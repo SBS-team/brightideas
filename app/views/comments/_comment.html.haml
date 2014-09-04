@@ -1,0 +1,20 @@
+%li{'data-commentId' => comment.id}
+  .commenterImage
+    =image_tag comment.user.avatar.big_avatar.url
+  .commenterName
+    =link_to comment.user.first_name + " " + comment.user.last_name, comment.user
+    ,
+    %span.date.sub-text
+      on
+      =comment.created_at.localtime.strftime('%d-%m-%Y, %H:%M')
+    -if comment.depth <= 2
+      %a.reply @Reply
+  %br
+  .commentText
+    =comment.text
+  .upvote
+    %span.count
+      0
+    %span.upvote
+    %span.downvote.downvote-on
+  %hr#commentLine

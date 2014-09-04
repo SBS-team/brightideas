@@ -40,6 +40,7 @@
 .commentList li {
   margin:0;
   margin-top:10px;
+
 }
 .commentList li > div {
   display:table-cell;
@@ -69,11 +70,12 @@
 }
 .post-comment{
   width:auto;
-  margin:10px 0px;
+//  margin:10px 0px;
 }
 .post-button{
   float: right;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 .attach-file{
   margin-top: 10px;
@@ -114,5 +116,20 @@
   margin-right: -3px;
 }
 .answer{
-  margin-left: 30px;
+  margin-left: 40px;
+}
+
+.reply{
+  cursor: pointer;
+  margin-left: 25px;
+}
+ul#reply_comment{
+  padding: 0px;
+  padding-top: 10px;
+}
+ul#reply_comment h4{
+  margin-left: 20px;
+}
+li.well{
+  margin: 0px;
 }
