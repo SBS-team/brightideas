@@ -1,5 +1,6 @@
 $ ->
   $('.upvote').upvote()
+
   $('.reply').click ->
     reply_comment = ($(this).parents 'li').clone()
     $('#parent_comment_id').val reply_comment.attr "data-commentId"
@@ -13,3 +14,11 @@ $ ->
       $("#reply_comment").html ''
     reply_comment.addClass 'well'
     reply_comment.appendTo '#reply_comment'
+
+  $('span.upvote').click ->
+    comment_id = ($(this).parents 'li').attr "data-commentId"
+    $.post '/comment/'+ comment_id + '/like'
+
+  $('span.downvote').click ->
+    comment_id = ($(this).parents 'li').attr "data-commentId"
+    $.post '/comment/'+ comment_id + '/dislike'

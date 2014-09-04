@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users
 
   post '/ideas/:id/rating' => 'ideas#set_rating', :as => 'set_idea_rating'
-  # get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
+  post '/comment/:id/like' => 'comments#comment_like', :as => 'comment_like'
+  post '/comment/:id/dislike' => 'comments#comment_dislike', :as => 'comment_dislike'
 
 end

@@ -25,11 +25,6 @@
           %h4 Attachments:
           .row
             =render partial: @idea.attachments
-  -#=form_for Comment.new  do |f|
-  -#  =f.hidden_field :idea_id, :value => params[:id]
-  -#  =f.hidden_field :parent_id
-  -#  =f.text_area :text
-  -#  =f.submit 'comment it'
   .row
     .pull-right
       %input#input-rating.rating{"data-max" => "5", "data-min" => "0","data-show-clear"=>"false", "data-step" => "0.1",
@@ -57,6 +52,5 @@
         -#    %option{:value => "img2.png"} img2.png
         .post-button
           =f.submit "Post comment", :class => "btn btn-success post-button"
-  -#%input#input-2.file{:type=>"file",:multiple=>"true", "data-show-upload"=>"false", "data-show-caption"=>"true"}
 
 =javascript_include_tag 'rating'
