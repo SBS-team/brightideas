@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:invitations => 'user_invitations'}
   root to: 'ideas#index'
   resources :ideas
-  resources :users
+  resources :comments
   resources :attachments
   resources :users
+
+  post '/ideas/:id/rating' => 'ideas#set_rating', :as => 'set_idea_rating'
+  post '/comment/:id/like' => 'comments#comment_like', :as => 'comment_like'
+  post '/comment/:id/dislike' => 'comments#comment_dislike', :as => 'comment_dislike'
+
 end

@@ -3,10 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .idea-image {
-  width:100%;
-  height:150px;
+  padding-bottom: 5px;
+  border-radius: 5%;
 }
-
 .idea-owner {
   position: absolute;
   width:auto;
@@ -23,13 +22,13 @@
   color: black;
 }
 
-.attach-item{
-  position: absolute;
-  border: 2px black solid;
-  width: 100px;
-  height: 100px;
-  left: 40px;
+.attach-item img{
+  border-radius: 4px;
 }
+.attach-item{
+  text-align: center;
+}
+
 .idea-description{
   height: 120px;
 }
@@ -46,7 +45,7 @@
   height: 220px;
 }
 .star-rating.rating-md.rating-active{
-  float:right;
+//  float:right;
   font-size: 30px;
 }
 .star-rating.rating-md.rating-active .caption{
@@ -58,16 +57,7 @@
   border: 2px black solid;
   margin-top: 50px;
 }
-.file-preview-thumbnails{
-  border: 2px black solid;
-  height: auto;
-  text-align: center;
-}
-.file-preview-thumbnails span{
-  font-size:50px;
-  height: auto;
-  text-align: center;
-}
+
 .clip{
   overflow: hidden;
   white-space: nowrap;
@@ -93,8 +83,14 @@
   color: #000000;
   text-align: center;
 }
+.text-left{
+  text-align: left;
+}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> show_idea
 .col-link:hover{
   cursor: pointer;
   border: 3px gray;

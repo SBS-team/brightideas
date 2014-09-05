@@ -1,0 +1,20 @@
+%li{'data-commentId' => comment.id}
+  .commenterImage
+    =image_tag comment.user.avatar.big_avatar.url
+  .commenterName
+    =link_to comment.user.first_name + " " + comment.user.last_name, comment.user
+    ,
+    %span.date.sub-text
+      on
+      =comment.created_at.localtime.strftime('%d-%m-%Y, %H:%M')
+    -if comment.depth <= 2
+      %a.reply @Reply
+  %br
+  .commentText
+    =comment.text
+  .upvote
+    %span.count
+      = comment.get_likes.size-comment.get_dislikes.size
+    %span.upvote{:class => comment.votes_for.up.by_type(User).voters.include?(current_user) ? 'upvote-on' : ''}
+    %span.downvote{:class => comment.votes_for.down.by_type(User).voters.include?(current_user) ? 'downvote-on' : ''}
+  %hr#commentLine

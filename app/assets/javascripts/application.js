@@ -22,7 +22,6 @@
 //= require jquery.upvote
 //= require bootstrap-tagsinput
 //= require active_admin
-//= require comments
 //= require user_invitation
 //= require users
 //= require wysihtml5-0.3.0

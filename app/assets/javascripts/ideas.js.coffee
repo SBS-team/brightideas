@@ -7,3 +7,4 @@ $ ->
     $(this).dotdotdot({
       watch: 'window'
     })
+  $("div[id^='highlighter_']").attr style: ""

@@ -38,7 +38,14 @@ class IdeasController < ApplicationController
       @idea = Idea.all
   end
 
-
+  def set_rating
+    @rating =  Rating.find_or_initialize_by(:idea_id => params[:id], :user_id => current_user.id)
+    @rating.rate = params[:rate]
+    @rating.save
+    respond_to do |format|
+      format.html {redirect_to :back}
+    end
+  end
 
   private
   def idea_params

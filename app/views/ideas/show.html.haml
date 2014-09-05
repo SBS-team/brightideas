@@ -1,159 +1,52 @@
 .container
-  .idea-head
-    .idea-owner
-      %img{src: '../img/all-users.png',class:'owner-image'}
-      .owner-name
-        =link_to 'Firstname Lastname','#'
-    .idea-title
-      =@idea.title
-    %img{src: '../img/none.png',class:'idea-image'}
-  .col-md-12
-    .well
-      #myCarousel.carousel.slide{"data-interval" => "0", "data-ride" => "carousel"}
-        .carousel-inner
-          -first=true
-          -@idea.attachments.in_groups_of(4,false) do |file|
-            .item{:class=>('active' if first==true)}
-              .row
-                -file.each do |idea|
-                  .col-xs-3
-                    .attach-frame
-                      .attach-image
-                        %a{:href => "#x"}
-                          %img{:alt => "Image", :src =>"#{idea.path.url(:thumb)}"}
-            -first=false
+  .row
+    .panel.panel-info
+      .panel-heading
+        .row
+          .col-md-2
+            -if !@idea.avatar_id.nil?
+              =image_tag get_idea_avatar(@idea), :class => "p-bot-5", :size => '150x150'
+            -else
+              =image_tag '/img/no_image_available_thumb.jpg', :class => "p-bot-5", :width => 100, :height => 100
+          .col-md-10
+            %h2.idea-title.text-left
+              =@idea.title
+        .row
+          .pull-right{ :style => 'padding-right:15px;' }
+            =link_to @idea.user do
+              = image_tag(@idea.user.avatar.small_avatar.url, :class => 'img-circle')
+              =@idea.user.first_name + " " + @idea.user.last_name
+            at
+            =@idea.created_at.localtime.strftime('%d-%m-%Y, %H:%M')
+      .panel-body
+        =@idea.description.html_safe
+      -if !@idea.attachments.empty?
+        .panel-footer
+          %h4 Attachments:
+          .row
+            =render partial: @idea.attachments
+  .row
+    .pull-right
+      %input#input-rating.rating{"data-max" => "5", "data-min" => "0","data-show-clear"=>"false", "data-step" => "0.1",
+                                  :value => get_idea_rating(@idea)}
+  -if(!@idea.comments.empty?)
+    .row
+      %h4 Comments
+      .detailBox
+        .actionBox
+          %ul.commentList
+            =comments_tree_for(@idea.comments.hash_tree)
+  .row
+    %br
+    %h4 Your comment
+    %ul#reply_comment
+    .post-comment
+      =form_for Comment.new do |f|
+        =f.hidden_field :idea_id, :value => params[:id]
+        =f.hidden_field :parent_id, :id => 'parent_comment_id'
+        =f.text_area :text, :placeholder => "Your comments", :class => "ckeditor"
+        .post-button
+          =f.submit "Post comment", :class => "btn btn-success post-button"
 
-          -#    .col-xs-3
-          -#      .attach-frame
-          -#        .attach-image
-          -#          %a{:href => "#x"}
-          -#            %img{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#    .col-xs-3
-          -#      .attach-frame
-          -#        .attach-other
-          -#          %h2
-          -#            %i.glyphicon.glyphicon-file
-          -#          DCIM.zip
-          -#    .col-xs-3
-          -#      %a{:href => "#x"}
-          -#        %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#.test.item.active.row
-          -#  .col-xs-3
-          -#    %a{:href => "#x"}
-          -#      %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#  .col-xs-3
-          -#    %a{:href => "#x"}
-          -#      %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#  .col-xs-3
-          -#    %a{:href => "#x"}
-          -#      %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#  .col-xs-3
-          -#    %a{:href => "#x"}
-          -#      %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#.item
-          -#  .row
-          -#    .col-xs-3
-          -#      %a{:href => "#x"}
-          -#        %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#    .col-xs-3
-          -#      %a{:href => "#x"}
-          -#        %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#    .col-xs-3
-          -#      %a{:href => "#x"}
-          -#        %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-          -#    .col-xs-3
-          -#      %a{:href => "#x"}
-          -#        %img.img-responsive{:alt => "Image", :src => "http://placehold.it/250x250"}/
-      %a.left.carousel_control{"data-slide" => "prev", :href => "#myCarousel"} ‹
-      %a.right.carousel_control{"data-slide" => "next", :href => "#myCarousel"} ›
-  .idea-description
-    =@idea.description
-  %input#input-2.rating{"data-max" => "5", "data-min" => "0","data-show-clear"=>"false", "data-step" => "0.1"}
-  .detailBox
-    .actionBox
-      %ul.commentList
-        %li
-          .commenterImage
-            %img{:src => "http://lorempixel.com/50/50/people/6"}/
-          .commenterName
-            =link_to 'Firstname Lastname','#'
-            ,
-            %span.date.sub-text on March 5th, 2014
-          %br
-          .commentText
-            %p Hello this is a test comment.
-          .upvote
-            %span.count 0
-            %span.upvote
-            %span.downvote
-          %hr#comment-line
-        .answer
-          %li
-            .commenterImage
-              %img{:src => "http://lorempixel.com/50/50/people/7"}/
-            .commenterName
-              =link_to 'Firstname Lastname','#'
-              ,
-              %span.date.sub-text on March 5th, 2014
-            %br
-            .commentText
-              %p Hello this is a test comment and this comment is particularly very long and it goes on and on and on.
-            .upvote
-              %span.count 0
-              %span.upvote
-              %span.downvote
-            %hr#comment-line
-        %li
-          .commenterImage
-            %img{:src => "http://lorempixel.com/50/50/people/7"}/
-          .commenterName
-            =link_to 'Firstname Lastname','#'
-            ,
-            %span.date.sub-text on March 5th, 2014
-          %br
-          .commentText
-            %p Hello this is a test comment and this comment is particularly very long and it goes on and on and on.
-          .upvote
-            %span.count 0
-            %span.upvote
-            %span.downvote
-          %hr#comment-line
-        %li
-          .commenterImage
-            %img{:src => "http://lorempixel.com/50/50/people/7"}/
-          .commenterName
-            =link_to 'Firstname Lastname','#'
-            ,
-            %span.date.sub-text on March 5th, 2014
-          %br
-          .commentText
-            %p Hello this is a test comment and this comment is particularly very long and it goes on and on and on.
-          .upvote
-            %span.count 0
-            %span.upvote
-            %span.downvote
-          %hr#comment-line
-        %li
-          .commenterImage
-            %img{:src => "http://lorempixel.com/50/50/people/9"}/
-          .commenterName
-            =link_to 'Firstname Lastname','#'
-            ,
-            %span.date.sub-text on March 5th, 2014
-          %br
-          .commentText
-            %p Hello this is a test comment.
-          %hr#comment-line
-  .post-comment
-    %input.form-control{:placeholder => "Your comments", :type => "text"}
-      .attach-file
-        %label.btn.btn-default{:for => "my-file-selector"}
-          Attach file
-          %input#my-file-selector{:style => "display:none;", :type => "file"}
-        %select{"data-role" => "tagsinput", :multiple => ""}
-          %option{:value => "img1.png"} img1.png
-          %option{:value => "test.txt"} test.txt
-          %option{:value => "img2.png"} img2.png
-    .post-button
-      %button.btn.btn-default Post comment
-  %input#input-2.file{:type=>"file",:multiple=>"true", "data-show-upload"=>"false", "data-show-caption"=>"true"}
+=javascript_include_tag 'rating'
+=javascript_include_tag 'comments'

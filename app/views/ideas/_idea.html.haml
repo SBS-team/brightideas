@@ -1,9 +1,9 @@
 .col-md-3.col-sm-6.col-xs-12.col-link
   .thumbnail
     -if !idea.avatar_id.nil?
-      =image_tag Attachment.find(idea.avatar_id).path.thumb_200x200.url, :class => "p-bot-5"
+      =image_tag get_idea_avatar(idea), :class => "idea-image"
     -else
-      =image_tag '/img/no_image_available_thumb.jpg', :class => "p-bot-5"
+      =image_tag '/img/no_image_available_thumb.jpg', :class => "idea-image"
     .caption.bg-lightcyan.idea-preview-caption
       %div
         %h4.clip.idea-title
@@ -14,10 +14,10 @@
         %span.btn-lg
           %i.glyphicon.glyphicon-comment.icon-cornflowerblue
           %span.badge
-            =idea.comments.count
+            =idea.comments.size
         %i.glyphicon.glyphicon-star.icon-gold
         %span.badge
-          5
+          =get_idea_rating(idea)
       %div
         by
-        =link_to idea.user.first_name + " " + idea.user.first_name, idea.user
+        =link_to idea.user.first_name + " " + idea.user.last_name, idea.user
