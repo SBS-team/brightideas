@@ -31,26 +31,22 @@
                                   :value => get_idea_rating(@idea)}
   -if(!@idea.comments.empty?)
     .row
+      %h4 Comments
       .detailBox
         .actionBox
           %ul.commentList
             =comments_tree_for(@idea.comments.hash_tree)
   .row
+    %br
+    %h4 Your comment
     %ul#reply_comment
     .post-comment
       =form_for Comment.new do |f|
         =f.hidden_field :idea_id, :value => params[:id]
         =f.hidden_field :parent_id, :id => 'parent_comment_id'
-        =f.text_area :text, :placeholder => "Your comments", :class => "form-control"
-        -#.attach-file
-        -#  %label.btn.btn-default{:for => "my-file-selector"}
-        -#    Attach file
-        -#    %input#my-file-selector{:style => "display:none;", :type => "file"}
-        -#  %select{"data-role" => "tagsinput", :multiple => ""}
-        -#    %option{:value => "img1.png"} img1.png
-        -#    %option{:value => "test.txt"} test.txt
-        -#    %option{:value => "img2.png"} img2.png
+        =f.text_area :text, :placeholder => "Your comments", :class => "ckeditor"
         .post-button
           =f.submit "Post comment", :class => "btn btn-success post-button"
 
 =javascript_include_tag 'rating'
+=javascript_include_tag 'comments'

@@ -1,5 +1,21 @@
 $(document).ready(function(){
-    $("#description").ckeditor({});
+
+    CKEDITOR.replace("description", {
+        uiColor: "#e7e7e7",
+        language: "en",
+        toolbar:  [
+            [ 'Undo', 'Redo' ],
+            ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord'],
+            [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv',
+                '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl'],
+            [ 'Link', 'Unlink'],
+            [ 'TextColor', 'BGColor' ],
+            [ 'Maximize', 'ShowBlocks' ],
+            [ 'Styles', 'Format', 'Font', 'FontSize' ],
+            ['Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak']
+        ]
+    });
 
     $('#avatarupload').fileupload({
         maxFileSize: 5000000,
