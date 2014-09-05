@@ -16,12 +16,15 @@
 //= require ckeditor-jquery
 //= require jquery-fileupload
 //= require bootstrap
+//= require bootstrap-tags
 //= require jquery-star-rating
 //= require star-rating
 //= require jquery.upvote
-//= require bootstrap-tagsinput
+//= require jquery.dotdotdot
 //= require active_admin
 //= require comments
+//= require ideas
+//= require avatar_preview
 //= require user_invitation
 //= require users
 //= require wysihtml5-0.3.0
