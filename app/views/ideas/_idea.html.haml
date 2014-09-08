@@ -1,20 +1,21 @@
 .col-md-3.col-sm-6.col-xs-12.col-link
-  .thumbnail
-    =image_tag get_idea_avatar(idea), :class => "idea-image"
-    .caption.bg-lightcyan.idea-preview-caption
-      %div
-        %h4.clip.idea-title
-          =link_to idea.title, idea, :title => idea.title, :class => 'idea-title'
-        .idea-description
-          =idea.description.html_safe
-      %div{ :align => "right" }
-        %span.btn-lg
-          %i.glyphicon.glyphicon-comment.icon-cornflowerblue
-          %span.badge.badge-comments
-            =idea.comments.size
-        %i.glyphicon.glyphicon-star.icon-gold
-        %span.badge
-          =get_idea_rating(idea)
-      %div
-        by
-        =link_to idea.user.first_name + " " + idea.user.last_name, idea.user
+  .idea-container
+    .thumbnail
+      =image_tag get_idea_avatar(idea), :class => "idea-image"
+      .caption.bg-lightcyan.idea-preview-caption
+        %div
+          %h4.clip.idea-title
+            =link_to idea.title, idea, :title => idea.title, :class => 'idea-title'
+          .idea-description
+            =idea.description.html_safe
+        %div{ :align => "right" }
+          %span.btn-lg
+            %i.glyphicon.glyphicon-comment.icon-cornflowerblue
+            %span.badge.badge-comments
+              =idea.comments.size
+          %i.glyphicon.glyphicon-star.icon-gold
+          %span.badge
+            =get_idea_rating(idea)
+        %div
+          by
+          =link_to idea.user.first_name + " " + idea.user.last_name, idea.user

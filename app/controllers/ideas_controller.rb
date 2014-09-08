@@ -35,7 +35,8 @@ class IdeasController < ApplicationController
   end
 
   def index
-      @idea = Idea.all
+    #@idea = Idea.all
+    @idea = Idea.all.page(params[:page]).per(8)
   end
 
   def set_rating

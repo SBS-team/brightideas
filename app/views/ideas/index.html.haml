@@ -1,4 +1,7 @@
-.container
+.ideas-container
   =render :partial => @idea
+.pagination
+  = paginate @idea
 
-=javascript_include_tag 'ideas'
+= javascript_include_tag "ideas.js"
+-#= javascript_include_tag "jquery.dotdotdot.js"

@@ -17,10 +17,9 @@
       #md-tags.tag-list
         %input{:type=>'hidden', :id => 'tagListIds'}
   .row
-    .ideas-list
-      %span.ideas-span
-        My ideas
-      %hr
+    %span.ideas-span
+      My ideas
+    %hr
     .col-md-12
       .ideas-container
         = render 'users/user_idea', :locals => {:ideas => @user_ideas}
@@ -42,3 +41,4 @@
           %button.btn.btn-primary.submit-avatar{:type => "button"} Save changes
 
 = javascript_include_tag "ideas"
+= javascript_include_tag "jquery.dotdotdot.js"

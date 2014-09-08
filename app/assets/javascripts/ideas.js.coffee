@@ -4,8 +4,7 @@ $ ->
     $(this).click ->
       window.location.pathname = href
 
-  $('.idea-description').each ->
-    $(this).dotdotdot({
+  $('.idea-description').dotdotdot({
       watch: 'window'
     })
 
@@ -13,7 +12,7 @@ $ ->
 
   $('.idea-desc-block').dotdotdot({
       watch: 'window'
-    });
+    })
 
   $("#md-tags").tags
     tagData: gon.user_tags
@@ -32,3 +31,11 @@ $ ->
     navSelector: "nav.pagination"
     nextSelector: "nav.pagination a[rel=next]"
     itemSelector: ".ideas-container"
+    ->
+      $('.idea-desc-block').dotdotdot()
+      $('.idea-description').dotdotdot()
+
+  $('.idea-block').popover ->
+    title: 'title'
+    content: 'content'
+    trigger: 'hover'
