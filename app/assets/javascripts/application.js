@@ -17,11 +17,12 @@
 //= require ckeditor-jquery
 //= require jquery-fileupload
 //= require bootstrap
-//= require jquery-star-rating
-//= require star-rating
+//= require bootstrap-tags
 //= require jquery.upvote
-//= require bootstrap-tagsinput
+//= require jquery.dotdotdot
 //= require active_admin
+//= require jquery.infinitescroll
+//= require avatar_preview
 //= require user_invitation
 //= require users
 //= require wysihtml5-0.3.0

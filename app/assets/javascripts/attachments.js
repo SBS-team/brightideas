@@ -41,7 +41,6 @@ $(document).ready(function(){
             ShowError();
         }
     });
-//    $('#fileupload').on('submit',true);
     $('#fileupload').fileupload({
         maxFileSize: 31457280,
         maxNumberOfFiles: 10,

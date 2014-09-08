@@ -1,0 +1,16 @@
+- @user_ideas.each do |idea|
+  .idea-block
+    .col-md-2
+      .idea-logo-box
+        =image_tag get_idea_avatar(idea), :class => "idea-logo"
+    .col-md-10
+      = link_to idea_path(idea) do
+        %h3=idea.title
+      .idea-desc-block
+        = idea.description.html_safe
+      .idea-statistic
+        %span.glyphicon.glyphicon-comment
+          =idea.comments.size
+        %span.glyphicon.glyphicon-star
+          =get_idea_rating(idea)
+  %hr

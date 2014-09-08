@@ -1,6 +1,10 @@
 module IdeasHelper
   def get_idea_avatar(idea)
-    Attachment.find(idea.avatar_id).path.thumb_200x200.url
+    if !idea.avatar_id.nil?
+      Attachment.find(idea.avatar_id).path.thumb_200x200.url
+    else
+      '/img/no_image_available_thumb.jpg'
+    end
   end
 
   def get_idea_rating(idea)

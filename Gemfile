@@ -33,6 +33,8 @@ gem 'capistrano-bundler'
 gem 'capistrano-rvm'
 gem 'capistrano-rails'
 gem 'jquery-fileupload-rails'
+gem 'kaminari'
+gem 'gon'
 gem 'activerecord-reset-pk-sequence'
 group :development do
   gem 'better_errors'

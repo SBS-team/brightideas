@@ -2,8 +2,8 @@
   .row
     .col-md-2
       .avatar-box-big
-        = image_tag(@user.avatar.big_avatar.url, :class => 'img-circle')
-        %span.glyphicon.glyphicon-pencil.pull-right.change-avatar
+        = image_tag(@user.avatar.big_avatar.url)
+        %span.glyphicon.glyphicon-pencil.pull-right.change-avatar{:title => 'Change avatar'}
     .col-md-10
       .user-name
         %span
@@ -14,6 +14,31 @@
       .last-activity
         %span.glyphicon.glyphicon-time
           Last activity at ...
+      #md-tags.tag-list
+        %input{:type=>'hidden', :id => 'tagListIds'}
+  .row
+    .ideas-list
+      %span.ideas-span
+        My ideas
+      %hr
+    .col-md-12
+      .ideas-container
+        = render 'users/user_idea', :locals => {:ideas => @user_ideas}
+      .pagination
+        = paginate @user_ideas
+  #change-avatar-modal.modal.fade
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+          %h4.modal-title Change your avatar
+        .modal-body
+          = form_for current_user, :url => {:action => 'update'}, :html => {:class => 'change-avatar-form'} do |f|
+            .avatar-box-big
+              = image_tag(@user.avatar.big_avatar.url,:class => 'user-avatar')
+            = f.file_field 'avatar', :class => 'avatar-field'
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+          %button.btn.btn-primary.submit-avatar{:type => "button"} Save changes
 
-
-
+= javascript_include_tag "ideas"

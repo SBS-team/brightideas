@@ -1,9 +1,6 @@
 .col-md-3.col-sm-6.col-xs-12.col-link
   .thumbnail
-    -if !idea.avatar_id.nil?
-      =image_tag get_idea_avatar(idea), :class => "idea-image"
-    -else
-      =image_tag '/img/no_image_available_thumb.jpg', :class => "idea-image"
+    =image_tag get_idea_avatar(idea), :class => "idea-image"
     .caption.bg-lightcyan.idea-preview-caption
       %div
         %h4.clip.idea-title
@@ -13,7 +10,7 @@
       %div{ :align => "right" }
         %span.btn-lg
           %i.glyphicon.glyphicon-comment.icon-cornflowerblue
-          %span.badge
+          %span.badge.badge-comments
             =idea.comments.size
         %i.glyphicon.glyphicon-star.icon-gold
         %span.badge
