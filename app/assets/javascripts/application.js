@@ -24,6 +24,7 @@
 //= require active_admin
 //= require comments
 //= require ideas
+//= require jquery.infinitescroll
 //= require avatar_preview
 //= require user_invitation
 //= require users

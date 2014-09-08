@@ -4,6 +4,7 @@ $(document).ready ->
     });
 
   $("#md-tags").tags
+    tagData: gon.user_tags
     maxNumTags: 10
     tagSize: 'lg'
     bootstrapVersion: '3'
@@ -14,11 +15,8 @@ $(document).ready ->
   $('.submit-avatar').click ->
     $('.change-avatar-form').submit()
 
-  if $('#infinite-scrolling').size() > 0
-    $(window).on 'scroll', ->
-      more_posts_url = $('.pagination .next_page a').attr('href')
-      if more_posts_url && $(window).scrollTop() > $(document).height() - $(window).height() - 60
-        $('.pagination').html('<img src="/assets/ajax-loader.gif" alt="Loading..." title="Loading..." />')
-        $.getScript more_posts_url
-      return
-      return
+
+  $(".ideas-container").infinitescroll
+    navSelector: "nav.pagination"
+    nextSelector: "nav.pagination a[rel=next]"
+    itemSelector: ".ideas-container"
