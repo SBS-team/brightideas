@@ -34,8 +34,3 @@ $ ->
     ->
       $('.idea-desc-block').dotdotdot()
       $('.idea-description').dotdotdot()
-
-  $('.idea-block').popover ->
-    title: 'title'
-    content: 'content'
-    trigger: 'hover'

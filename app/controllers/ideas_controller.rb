@@ -35,8 +35,24 @@ class IdeasController < ApplicationController
   end
 
   def index
-    #@idea = Idea.all
-    @idea = Idea.all.page(params[:page]).per(8)
+    if params[:sort_criterion].present?
+      case params[:sort_criterion]
+        when 'sort_by_date'
+          @idea = Idea.page(params[:page]).per(8).order(:created_at)
+        when 'sort_by_comments'
+          @idea = Idea.all.sort_by {|item| item.comments.size}
+        when 'sort_by_rating'
+          @idea = Idea.all.page(params[:page]).per(8)#.sort_by {|item| get_idea_rating(item)}
+      end
+    end
+
+    if params[:search].present?
+      @idea = Idea.where("title LIKE '%#{params[:search]}%'").page(params[:page]).per(8)
+    end
+
+    if params[:sort_criterion].blank? && params[:search].blank?
+      @idea = Idea.all.page(params[:page]).per(8)
+    end
   end
 
   def set_rating

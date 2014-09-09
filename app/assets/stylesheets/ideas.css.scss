@@ -154,6 +154,25 @@
 
 }
 
+.action-block {
+  padding-right: 10px;
+  height: 40px;
+}
+
+.content-block {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .ideas-container{
   margin-top: 20px;
+}
+
+#search-form #search{
+  height: 25px;
+  width: 250px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  margin-top: 7px;
 }

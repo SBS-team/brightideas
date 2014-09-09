@@ -18,4 +18,4 @@
             =get_idea_rating(idea)
         %div
           by
-          =link_to idea.user.first_name + " " + idea.user.last_name, idea.user
+          =link_to "#{idea.user.first_name} #{idea.user.last_name}", idea.user

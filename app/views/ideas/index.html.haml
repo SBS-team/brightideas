@@ -1,7 +1,23 @@
-.ideas-container
-  =render :partial => @idea
-.pagination
-  = paginate @idea
+.content-block
+  .row
+    .action-block
+      = form_tag(ideas_path, :method => 'get', id: 'search-form', class: 'pull-right') do
+        .input-group
+          .dropdown
+            %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+              Sort by
+              %span.caret
+            %ul.dropdown-menu{'aria-labelledby' => 'dropdownMenu1', :role => 'menu'}
+              %li{:role => 'presentation', :id => 'sort_by_date'}
+                = link_to 'creation date', :controller => 'ideas', :action => 'index', :sort_criterion => 'sort_by_date'
+              %li{:role => 'presentation', :id => 'sort_by_comments'}
+                = link_to 'comments count', :controller => 'ideas', :action => 'index', :sort_criterion => 'sort_by_comments'
+              %li{:role => 'presentation', :id => 'sort_by_rating'}
+                = link_to 'rating', :controller => 'ideas', :action => 'index', :sort_criterion => 'sort_by_rating'
+  .row
+    .ideas-container
+      = render :partial => @idea
+    .pagination
+      = paginate @idea
 
 = javascript_include_tag "ideas.js"
--#= javascript_include_tag "jquery.dotdotdot.js"
