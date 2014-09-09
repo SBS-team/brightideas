@@ -13,5 +13,4 @@ Rails.application.routes.draw do
   post '/comment/:id/dislike' => 'comments#comment_dislike', :as => 'comment_dislike'
   delete '/tags' => 'tags#destroy'
   put '/user_avatar_update' => 'users#update'
-
 end

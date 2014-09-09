@@ -1,5 +1,6 @@
 class IdeasController < ApplicationController
   before_filter :authenticate_user!
+  include IdeasHelper
 
   def show
    @idea = Idea.find(params[:id])
@@ -38,11 +39,11 @@ class IdeasController < ApplicationController
     if params[:sort_criterion].present?
       case params[:sort_criterion]
         when 'sort_by_date'
-          @idea = Idea.page(params[:page]).per(8).order(:created_at)
+          @idea = Idea.order(:created_at).page(params[:page]).per(8)
         when 'sort_by_comments'
-          @idea = Idea.all.sort_by {|item| item.comments.size}
+          @idea = Idea.order(:comments_count => :desc).page(params[:page]).per(8)
         when 'sort_by_rating'
-          @idea = Idea.all.page(params[:page]).per(8)#.sort_by {|item| get_idea_rating(item)}
+          @idea = Idea.order(:rate => :desc).page(params[:page]).per(8)
       end
     end
 
@@ -59,6 +60,12 @@ class IdeasController < ApplicationController
     @rating =  Rating.find_or_initialize_by(:idea_id => params[:id], :user_id => current_user.id)
     @rating.rate = params[:rate]
     @rating.save
+    idea = Idea.find(params[:id])
+    puts '--------------------------------------'
+    puts get_idea_rating(idea)
+    idea.rate = get_idea_rating(idea)
+    puts '--------------------------------------'
+    idea.save
     respond_to do |format|
       format.html {redirect_to :back}
     end
