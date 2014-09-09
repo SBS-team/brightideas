@@ -36,6 +36,7 @@ gem 'jquery-fileupload-rails'
 gem 'kaminari'
 gem 'gon'
 gem 'activerecord-reset-pk-sequence'
+gem 'jquery-qtip2-rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

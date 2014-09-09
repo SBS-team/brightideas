@@ -11,7 +11,7 @@
       %a.reply @Reply
   %br
   .commentText
-    =comment.text
+    =comment.text.html_safe
   .upvote
     %span.count
       = comment.get_likes.size-comment.get_dislikes.size

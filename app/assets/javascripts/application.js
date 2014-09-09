@@ -12,17 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require jquery-ui/position
+//= require twitter/bootstrap
 //= require jquery.dotdotdot.min
+//= require jquery.qtip.js
 //= require turbolinks
 //= require ckeditor-jquery
 //= require jquery-fileupload
-//= require bootstrap
 //= require bootstrap-tags
 //= require jquery.upvote
 //= require jquery.dotdotdot
 //= require active_admin
 //= require jquery.infinitescroll
 //= require avatar_preview
-//= require user_invitation
-//= require users
 //= require wysihtml5-0.3.0

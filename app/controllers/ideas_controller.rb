@@ -35,7 +35,7 @@ class IdeasController < ApplicationController
   end
 
   def index
-      @idea = Idea.all
+    @idea = Idea.all
   end
 
   def set_rating
