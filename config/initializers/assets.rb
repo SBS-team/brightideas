@@ -8,6 +8,8 @@ Rails.application.config.assets.precompile += %w( avatar_preview.js )
 Rails.application.config.assets.precompile += %w( comments.js )
 Rails.application.config.assets.precompile += %w( star-rating.js )
 Rails.application.config.assets.precompile += %w( rating.js )
+Rails.application.config.assets.precompile += %w( progressbar.gif )
+Rails.application.config.assets.precompile += %w( loading.gif )
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.

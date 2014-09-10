@@ -54,6 +54,7 @@ class IdeasController < ApplicationController
     if params[:sort_criterion].blank? && params[:search].blank?
       @idea = Idea.all.page(params[:page]).per(8)
     end
+
   end
 
   def set_rating

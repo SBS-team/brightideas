@@ -19,6 +19,7 @@ class CommentsController < ApplicationController
     else
       @comment.liked_by current_user
     end
+    render :json => "liked"
   end
 
   def comment_dislike
@@ -28,6 +29,7 @@ class CommentsController < ApplicationController
     else
       @comment.disliked_by current_user
     end
+    render :json => "disliked"
   end
 
 

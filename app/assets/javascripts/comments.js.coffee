@@ -48,8 +48,8 @@ $ ->
 
   $('span.upvote').click ->
     comment_id = ($(this).parents 'li').attr "data-commentId"
-    $.post '/comment/'+ comment_id + '/like'
+    $.post '/comment/'+ comment_id + '/like', null, "json"
 
   $('span.downvote').click ->
     comment_id = ($(this).parents 'li').attr "data-commentId"
-    $.post '/comment/'+ comment_id + '/dislike'
+    $.post '/comment/'+ comment_id + '/dislike', null, "json"

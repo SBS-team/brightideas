@@ -36,6 +36,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [140, 140]
   end
 
+  version :popup_avatar do
+    process :resize_to_fill => [100, 100]
+  end
+
   version :small_avatar do
     process :resize_to_fill => [30, 30]
   end
