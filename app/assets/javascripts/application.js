@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.dotdotdot.min
 //= require turbolinks
 //= require ckeditor-jquery
 //= require jquery-fileupload
@@ -25,4 +24,5 @@
 //= require avatar_preview
 //= require user_invitation
 //= require users
+//= require jquery.dotdotdot.min
 //= require wysihtml5-0.3.0

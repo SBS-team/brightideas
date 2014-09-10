@@ -61,10 +61,7 @@ class IdeasController < ApplicationController
     @rating.rate = params[:rate]
     @rating.save
     idea = Idea.find(params[:id])
-    puts '--------------------------------------'
-    puts get_idea_rating(idea)
     idea.rate = get_idea_rating(idea)
-    puts '--------------------------------------'
     idea.save
     respond_to do |format|
       format.html {redirect_to :back}
