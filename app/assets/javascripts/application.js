@@ -16,6 +16,7 @@
 //= require jquery-ui/position
 //= require twitter/bootstrap
 //= require jquery.dotdotdot.min
+//= require jquery.timeago
 //= require jquery.qtip.js
 //= require turbolinks
 //= require ckeditor-jquery
