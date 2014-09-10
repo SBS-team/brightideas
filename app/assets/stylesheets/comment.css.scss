@@ -28,13 +28,14 @@
 .actionBox .form-group * {
   width:100%;
 }
+
 .taskDescription {
   margin-top: 10px;
 }
 .commentList {
   padding:0;
   list-style:none;
-  max-height:200px;
+  max-height:350px;
   overflow:auto;
 }
 .commentList li {

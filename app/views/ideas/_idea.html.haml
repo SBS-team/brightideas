@@ -13,10 +13,10 @@
           %span.btn-lg
             %i.glyphicon.glyphicon-comment.icon-cornflowerblue
             %span.badge.badge-comments
-              = idea.comments.size
+              = idea.comments_count
           %i.glyphicon.glyphicon-star.icon-gold
           %span.badge
-            = get_idea_rating(idea)
+            = idea.rate
         %div
           by
           = link_to "#{idea.user.first_name} #{idea.user.last_name}", idea.user, :class => 'user-link'

@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     end
     @comment.user_id = current_user.id
     @comment.save
+    flash[:notice] = 'Your comment successfully added'
     redirect_to :back
 
   end

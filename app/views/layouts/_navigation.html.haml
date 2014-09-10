@@ -19,7 +19,7 @@
               = "#{current_user.first_name}" + " #{current_user.last_name}"
           %li
             = link_to destroy_user_session_path, method: 'delete', :class => 'btn btn-lg' do
-              %span.glyphicon.glyphicon-log-out
+              %span.glyphicon.glyphicon-log-out{:title => 'Sign out'}
         - else
           %li
             = link_to 'Login', new_user_session_path

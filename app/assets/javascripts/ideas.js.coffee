@@ -39,7 +39,8 @@ $ ->
     watch: 'window'
   })
 
-  $("div[id^='highlighter_']").attr style: ""
+  $(".idea-description div").attr style: ""
+  $(".idea-description pre").attr style: "display:none"
 
   $('.idea-desc-block').dotdotdot({
       watch: 'window'

@@ -28,13 +28,13 @@
   .row
     .pull-right
       %input#input-rating.rating{"data-max" => "5", "data-min" => "0","data-show-clear"=>"false", "data-step" => "0.1",
-                                  :value => get_idea_rating(@idea)}
+                                  :value => @idea.rate }
   -if(!@idea.comments.empty?)
     .row
       %h4 Comments
       .detailBox
         .actionBox
-          %ul.commentList
+          %ul.commentList.list-group
             =comments_tree_for(@idea.comments.hash_tree)
   .row
     %br
