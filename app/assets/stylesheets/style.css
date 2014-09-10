@@ -1376,3 +1376,15 @@
 .icon-IcoMoon:before {
 	content: "\e7c2";
 }
+
+.navbar-default {
+    height: 60px;
+}
+
+.nav-pills {
+    margin-top: 5px;
+}
+
+.navbar-default a {
+    color: #696969;
+}

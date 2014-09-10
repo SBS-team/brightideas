@@ -93,6 +93,7 @@
 
 .idea-title{
   color: #000000;
+  text-decoration: none;
   text-align: center;
 }
 .text-left{
@@ -163,6 +164,7 @@
 }
 
 .action-block {
+  padding-top: 10px;
   padding-right: 10px;
   height: 40px;
 }
@@ -176,11 +178,21 @@
   margin-top: 20px;
 }
 
+
 #search-form #search{
-  height: 25px;
+  height: 30px;
   width: 250px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
   margin-top: 7px;
+}
+
+#dropdownMenu1 {
+  border: none;
+}
+
+.navbar-default {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 18px;
 }

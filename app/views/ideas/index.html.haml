@@ -1,19 +1,23 @@
 .content-block
   .row
-    .action-block
-      = form_tag(ideas_path, :method => 'get', id: 'search-form', class: 'pull-right') do
-        .input-group
-          .dropdown
-            %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
-              Sort by
-              %span.caret
-            %ul.dropdown-menu{'aria-labelledby' => 'dropdownMenu1', :role => 'menu'}
-              %li{:role => 'presentation', :id => 'sort_by_date'}
-                = link_to 'creation date', :controller => 'ideas', :action => 'index', :sort_criterion => 'sort_by_date'
-              %li{:role => 'presentation', :id => 'sort_by_comments'}
-                = link_to 'comments count', :controller => 'ideas', :action => 'index', :sort_criterion => 'sort_by_comments'
-              %li{:role => 'presentation', :id => 'sort_by_rating'}
-                = link_to 'rating', :controller => 'ideas', :action => 'index', :sort_criterion => 'sort_by_rating'
+    - if @idea.count >= 2
+      .action-block
+        = form_tag(ideas_path, :method => 'get', id: 'search-form', class: 'pull-right') do
+          .input-group
+            .dropdown
+              %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+                Sort by
+                %span.caret
+              %ul.dropdown-menu{'aria-labelledby' => 'dropdownMenu1', :role => 'menu'}
+                %li{:role => 'presentation', :id => 'sort_by_date'}
+                  = link_to 'creation date', :controller => 'ideas', :action => 'index', :sort_criterion => 'sort_by_date'
+                %li{:role => 'presentation', :id => 'sort_by_comments'}
+                  = link_to 'comments count', :controller => 'ideas', :action => 'index', :sort_criterion => 'sort_by_comments'
+                %li{:role => 'presentation', :id => 'sort_by_rating'}
+                  = link_to 'rating', :controller => 'ideas', :action => 'index', :sort_criterion => 'sort_by_rating'
+    - if @idea.count == 0
+      .idea-block-fill
+        = image_tag('/img/no_ideas.png')
   .row
     .ideas-container
       = render :partial => @idea
