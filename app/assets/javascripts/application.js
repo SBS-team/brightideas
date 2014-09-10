@@ -18,7 +18,6 @@
 //= require jquery.dotdotdot.min
 //= require jquery.timeago
 //= require jquery.qtip.js
-//= require turbolinks
 //= require ckeditor-jquery
 //= require jquery-fileupload
 //= require bootstrap-tags

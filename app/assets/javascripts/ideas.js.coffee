@@ -16,7 +16,6 @@ $ ->
     tagSize: 'lg'
     bootstrapVersion: '3'
 
-
   if gon.user_id isnt gon.current_user_id
     $('.tag-list > input').prop('disabled', true);
     $('.tags a').remove()
