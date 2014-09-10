@@ -1,30 +1,21 @@
 .container
+  .row{:align => 'center'}
+    .idea-user-box
+      = image_tag(@idea.user.avatar, :class => 'idea-user')
+    %h2
+      =@idea.title
+    by
+    =@idea.user.first_name + " " + @idea.user.last_name
+    at
+    =@idea.created_at.localtime.strftime('%d-%m-%Y, %H:%M')
+  %br
+  %hr
   .row
-    .panel.panel-info
-      .panel-heading
-        .row
-          .col-md-2
-            -if !@idea.avatar_id.nil?
-              =image_tag get_idea_avatar(@idea), :class => "p-bot-5", :size => '150x150'
-            -else
-              =image_tag '/img/no_image_available_thumb.jpg', :class => "p-bot-5", :width => 100, :height => 100
-          .col-md-10
-            %h2.idea-title.text-left
-              =@idea.title
-        .row
-          .pull-right{ :style => 'padding-right:15px;' }
-            =link_to @idea.user do
-              = image_tag(@idea.user.avatar.small_avatar.url, :class => 'img-circle')
-              =@idea.user.first_name + " " + @idea.user.last_name
-            at
-            =@idea.created_at.localtime.strftime('%d-%m-%Y, %H:%M')
-      .panel-body
-        =@idea.description.html_safe
-      -if !@idea.attachments.empty?
-        .panel-footer
-          %h4 Attachments:
-          .row
-            =render partial: @idea.attachments
+    =@idea.description.html_safe
+  -if !@idea.attachments.empty?
+    %h4 Attachments:
+    .well.row
+      =render partial: @idea.attachments
   .row
     .pull-right
       %input#input-rating.rating{"data-max" => "5", "data-min" => "0","data-show-clear"=>"false", "data-step" => "0.1",

@@ -34,7 +34,7 @@ $ ->
                               this.config.maxChar + "</span>"
 
   CKEDITOR.instances.comment_text.on 'change', ->
-    char_count = this.getData().length
+    char_count = $(this.getData()).text().length
     if char_count > this.config.maxChar
       $('.post-button').attr "disabled" , "disabled"
       $('.cke_toolbox a').addClass "cke_button_disabled"
