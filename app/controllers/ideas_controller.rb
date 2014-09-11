@@ -1,6 +1,5 @@
 class IdeasController < ApplicationController
   before_filter :authenticate_user!
-  include IdeasHelper
 
   def show
    @idea = Idea.find(params[:id])
@@ -13,7 +12,7 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = Idea.new(idea_params)
+    @idea = Idea.new(idea_params) #FIXME http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html
     @idea.user_id = current_user.id
 
     respond_to do |format|
@@ -36,7 +35,7 @@ class IdeasController < ApplicationController
   end
 
   def index
-    if params[:sort_criterion].present?
+    if params[:sort_criterion].present? #FIXME here and params[:search].present?
       case params[:sort_criterion]
         when 'sort_by_date'
           @idea = Idea.order(:created_at).page(params[:page]).per(8)
@@ -48,7 +47,7 @@ class IdeasController < ApplicationController
     end
 
     if params[:search].present?
-      @idea = Idea.where("title LIKE '%#{params[:search]}%'").page(params[:page]).per(8)
+      @idea = Idea.where("lower(title) LIKE lower('%:search%')", search: params[:search]).page(params[:page]).per(8)
     end
 
     if params[:sort_criterion].blank? && params[:search].blank?
@@ -59,14 +58,9 @@ class IdeasController < ApplicationController
 
   def set_rating
     @rating =  Rating.find_or_initialize_by(:idea_id => params[:id], :user_id => current_user.id)
-    @rating.rate = params[:rate]
+    @rating.rate = params[:rate] #FIXME validate?
     @rating.save
-    idea = Idea.find(params[:id])
-    idea.rate = get_idea_rating(idea)
-    idea.save
-    respond_to do |format|
-      format.html {redirect_to :back}
-    end
+    redirect_to :back
   end
 
   private

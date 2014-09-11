@@ -1,4 +1,4 @@
-require 'carrierwave'
+require 'carrierwave' #FIXME I think we can remove this line
 
 class Attachment < ActiveRecord::Base
 	belongs_to :idea

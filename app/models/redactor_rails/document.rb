@@ -1,4 +1,4 @@
-class RedactorRails::Document < RedactorRails::Asset
+class RedactorRails::Document < RedactorRails::Asset #FIXME what?
   mount_uploader :data, RedactorRailsDocumentUploader, :mount_on => :data_file_name
 
   def url_content

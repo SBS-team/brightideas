@@ -23,10 +23,14 @@
       My ideas
     %hr
     .col-md-12
-      .ideas-container
-        = render 'users/user_idea', :locals => {:ideas => @user_ideas}
-      .pagination
-        = paginate @user_ideas
+      - if @user_ideas.count == 0
+        .idea-block-fill
+          = image_tag('/img/no_ideas.png')
+      - else
+        .ideas-container
+          = render 'users/user_idea', :locals => {:ideas => @user_ideas}
+        .pagination
+          = paginate @user_ideas
   #change-avatar-modal.modal.fade
     .modal-dialog
       .modal-content

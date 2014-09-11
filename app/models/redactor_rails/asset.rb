@@ -1,4 +1,4 @@
-class RedactorRails::Asset < ActiveRecord::Base
+class RedactorRails::Asset < ActiveRecord::Base #FIXME what?
   include RedactorRails::Orm::ActiveRecord::AssetBase
   delegate :url, :current_path, :size, :content_type, :filename, :to => :data
   validates_presence_of :data

@@ -5,7 +5,8 @@
     %h2
       =@idea.title
     by
-    =@idea.user.first_name + " " + @idea.user.last_name
+    =link_to @idea.user do
+      =@idea.user.first_name + " " + @idea.user.last_name
     at
     =@idea.created_at.localtime.strftime('%d-%m-%Y, %H:%M')
   %br

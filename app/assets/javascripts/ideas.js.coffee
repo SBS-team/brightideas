@@ -17,7 +17,7 @@ $ ->
                 content+= '<div><span><i class="glyphicon glyphicon-user"></i>'+data.user_post+'</span></div>'
                 content+= '<div><span>'+data.user_ideas+'  ideas</span></div>'
                 content+= '<div class="last-activity"><span><i class="glyphicon glyphicon-time">
-                                                                        </i> Last activity '+$.timeago(data.last_activity)+'</span></div></div></div>'
+                                 </i> Last activity '+$.timeago(data.last_activity)+'</span></div></div></div>'
                 content+= '<div class="row"><strong>'+data.user_tags.join(', ')+'</strong></div>'
                 api.set('content.title.text', title)
                 api.set('content.text', content)
@@ -40,7 +40,7 @@ $ ->
   })
 
   $(".idea-description div").attr style: ""
-  $(".idea-description pre").attr style: "display:none"
+  $("[class^='idea-desc'] pre").attr style: "display:none"
 
   $('.idea-desc-block').dotdotdot({
       watch: 'window'
