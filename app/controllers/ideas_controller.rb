@@ -48,7 +48,7 @@ class IdeasController < ApplicationController
     end
 
     if params[:search].present?
-      @idea = Idea.where("title LIKE '%#{params[:search]}%'").page(params[:page]).per(8)
+      @idea = Idea.where("lower(title) LIKE lower('%#{params[:search]}%')").page(params[:page]).per(8)
     end
 
     if params[:sort_criterion].blank? && params[:search].blank?
