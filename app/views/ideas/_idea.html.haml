@@ -9,7 +9,7 @@
             = link_to idea.title, idea, :title => idea.title, :class => 'idea-title'
           .idea-description
             = idea.description.html_safe
-        %div{ :align => "right" }
+        .text-right
           %span.btn-lg
             %i.glyphicon.glyphicon-comment.icon-cornflowerblue
             %span.badge.badge-comments

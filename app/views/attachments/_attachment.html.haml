@@ -1,6 +1,6 @@
 .col-lg-2
   .attach-box
-    =link_to  attachment.path.url do
+    =link_to  attachment.path.url, :target => "_blank" do
       -if %w{jpg png jpg gif bmp}.include? attachment.path.file.extension
         =image_tag attachment.path.thumb.url
       -else
