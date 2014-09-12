@@ -1,10 +1,8 @@
-require 'carrierwave' #FIXME I think we can remove this line
 
 class Attachment < ActiveRecord::Base
 	belongs_to :idea
 	belongs_to :comment
   mount_uploader :path, AttachmentUploader
-   # has_attached_file :Attachment
   include Rails.application.routes.url_helpers
 
   def to_jq_upload

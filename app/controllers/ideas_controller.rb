@@ -3,16 +3,14 @@ class IdeasController < ApplicationController
 
   def show
    @idea = Idea.find(params[:id])
-   @attachments = @idea.attachments.all
   end
 
   def new
     @idea = Idea.new
-    @attachments = @idea.attachments.build
   end
 
   def create
-    @idea = Idea.new(idea_params) #FIXME http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html
+    @idea = Idea.new(idea_params)
     @idea.user_id = current_user.id
 
     respond_to do |format|
@@ -50,10 +48,17 @@ class IdeasController < ApplicationController
 
   end
 
+  def destroy
+    idea = Idea.find(params[:id])
+    idea.delete
+  end
+
   def set_rating
     @rating =  Rating.find_or_initialize_by(:idea_id => params[:id], :user_id => current_user.id)
-    @rating.rate = params[:rate] #FIXME validate?
-    @rating.save
+    @rating.rate = params[:rate]
+    unless @rating.save
+      flash[:error] = @rating.errors.messages
+    end
     redirect_to :back
   end
 

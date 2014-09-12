@@ -1,16 +1,12 @@
 class AttachmentsController < ApplicationController
-  #FIXME authenticate?
+  before_filter :authenticate_user!
 
   def create
     @upload = Attachment.new(attachment_params)
 
     respond_to do |format|
       if @upload.save
-        format.html {
-          render :json => [@upload.to_jq_upload].to_json,
-                 :content_type => 'text/html',
-                 :layout => false
-        }
+        format.html { render action: "new" }
         format.json { render json: {files: [@upload.to_jq_upload]}, status: :created, location: @upload }
       else
         format.html { render action: "new" }

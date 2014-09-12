@@ -7,9 +7,10 @@
           = link_to 'Home', root_path
         %li
           = link_to 'Create idea', new_idea_path
-        %li
-          = form_tag(ideas_path, :method => 'get', id: 'search-form') do
-            = text_field_tag :search, params[:search], placeholder: 'Search ideas', :class => 'form-control'
+        - if request.fullpath != '/users/sign_in' and request.fullpath != '/users/sign_up'
+          %li
+            = form_tag(ideas_path, :method => 'get', id: 'search-form') do
+              = text_field_tag :search, params[:search], placeholder: 'Search ideas', :class => 'form-control'
     .collapse.navbar-collapse
       %ul.nav.nav-pills.pull-right
         - if user_signed_in?

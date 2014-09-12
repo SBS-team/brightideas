@@ -30,7 +30,6 @@ class User < ActiveRecord::Base
     end
 
     last_activity
-
   end
 
 end
