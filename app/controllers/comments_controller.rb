@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  #FIXME authenticate?
+  before_filter :authenticate_user!
 
   def create
     if params[:comment][:parent_id].to_i > 0
@@ -9,10 +9,18 @@ class CommentsController < ApplicationController
       @comment = Comment.new(comment_params)
     end
     @comment.user_id = current_user.id
-    @comment.save # FIXME save -> false
-    flash[:notice] = 'Your comment successfully added'
+    if @comment.save
+      flash[:notice] = 'Your comment successfully added'
+    else
+      flash[:error] = 'Your comment not added'
+    end
     redirect_to :back
 
+  end
+
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
   end
 
   def comment_like
@@ -22,7 +30,7 @@ class CommentsController < ApplicationController
     else
       @comment.liked_by current_user
     end
-    render :json => "liked" #FIXME json?
+    render json: {result: "liked"}
   end
 
   def comment_dislike
@@ -32,7 +40,7 @@ class CommentsController < ApplicationController
     else
       @comment.disliked_by current_user
     end
-    render :json => "disliked" #FIXME json?
+    render json: {result: "disliked"}
   end
 
 

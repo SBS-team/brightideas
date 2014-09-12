@@ -2,7 +2,9 @@ $ ->
 
   show_popup = ->
     $(".user-link").each ->
+      $(this).qtip('destroy', true)
       $(this).qtip({
+        overwrite: true
         content: {
           text: (event, api)->
             $.ajax({
@@ -72,4 +74,6 @@ $ ->
     ->
       $('.idea-desc-block').dotdotdot()
       $('.idea-description').dotdotdot()
+      $(".idea-description div").attr style: ""
+      $("[class^='idea-desc'] pre").attr style: "display:none"
       show_popup()

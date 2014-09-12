@@ -1,7 +1,4 @@
 class User < ActiveRecord::Base
-
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -9,12 +6,27 @@ class User < ActiveRecord::Base
     self.email && ENV['ADMIN_EMAILS'].to_s.include?(self.email)
   end
 
-  has_many   :ideas
-  has_many   :tags
-  has_many   :comments
+  has_many   :ideas, dependent: :destroy
+  has_many   :tags, dependent: :destroy
+  has_many   :comments, dependent: :destroy
   belongs_to :rank
-  has_many   :ratings
+  has_many   :ratings, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
+
+  def last_activity(format = nil)
+    activity = []
+    activity << self.ideas.last
+    activity << self.comments.last
+
+    last_activity = activity.compact.sort_by do |obj|
+      obj.updated_at
+    end.last.try(:updated_at) || self.updated_at
+
+    if format == :db
+      last_activity.getlocal.to_s(:db)
+    end
+
+  end
 
 end
