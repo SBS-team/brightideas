@@ -1,0 +1,17 @@
+#= require jquery
+#= require jquery_ujs
+#= require jquery-ui
+#= require jquery-ui/position
+#= require twitter/bootstrap
+#= require jquery.dotdotdot.min
+#= require jquery.timeago
+#= require jquery.qtip.js
+#= require ckeditor-jquery
+#= require jquery-fileupload
+#= require bootstrap-tags
+#= require jquery.upvote
+#= require jquery.dotdotdot
+#= require jquery.infinitescroll
+#= require avatar_preview
+#= require jquery.dotdotdot.min
+#= require wysihtml5-0.3.0

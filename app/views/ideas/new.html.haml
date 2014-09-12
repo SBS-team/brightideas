@@ -1,15 +1,15 @@
 .new_idea
-  %h2 New idea
-  %label Title
+  %h2.times-font New idea
+  %label.times-font Title
   %input.form-control{ :id => "title" }
-  %label Avatar
+  %label.times-font Avatar
   %input{:type => 'hidden', :id => 'avatar'}
   = form_for  Attachment.new, :html => { :id => "avatarupload" }, :class => "fileupload" do |d|
     .fileupload-buttonbar
       .span7
         %span.btn.btn-success.fileinput-button
           %i.icon-plus.icon-white
-          %span Choose avatar
+          %span Choose title image
           =d.file_field :path
       .span5
         .progress.progress-success.progress-striped.active.fade

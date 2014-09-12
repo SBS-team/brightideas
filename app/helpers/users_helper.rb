@@ -1,5 +1,5 @@
 module UsersHelper
-  def last_user_activity(user)
+  def last_user_activity(user) #FIXME move user model
     if !user.ideas.empty? && !user.comments.empty?
       latest_idea = user.ideas.sort_by{ |idea| idea.created_at }.last.created_at
       latest_comment = user.comments.sort_by{ |comment| comment.created_at }.last.created_at
@@ -13,4 +13,16 @@ module UsersHelper
       last_activity = user.comments.sort_by{ |comment| comment.created_at }.last.created_at
     end
   end
+
+
+  # def last #example
+  #   activity = []
+  #   activity << user.ideas.last
+  #   activity << user.comments.last
+  #
+  #   activity.compact.sort_by do |obj|
+  #     obj.updated_at
+  #   end.last.try(:updated_at) || user.updated_at
+  #
+  # end
 end

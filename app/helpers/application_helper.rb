@@ -1,2 +1,2 @@
-module ApplicationHelper
+module ApplicationHelper #FIXME remove empty files
 end

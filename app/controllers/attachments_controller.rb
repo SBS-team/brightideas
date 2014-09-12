@@ -1,4 +1,5 @@
 class AttachmentsController < ApplicationController
+  #FIXME authenticate?
 
   def create
     @upload = Attachment.new(attachment_params)

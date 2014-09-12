@@ -1,8 +1,5 @@
 ActiveAdmin.register User do
 
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
   action_item do
     link_to 'Invite New User', new_invitation_admin_users_path
   end
@@ -22,27 +19,10 @@ ActiveAdmin.register User do
     end
   end
 
-  # form do |f|
-  #   f.inputs "User Details" do
-  #     f.input :email
-  #     f.input :rank
-  #     f.input :password
-  #   end
-  #   f.actions
-  # end
-
   controller do
     def permitted_params
-      params.permit :user => [:email] #, :rank_id, :password]
+      params.permit :user => [:email]
     end
  end
 
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
 end

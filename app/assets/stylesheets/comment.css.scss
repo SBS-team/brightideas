@@ -19,22 +19,18 @@
   padding:10px;
   border-top:1px dotted #bbb;
 }
-//.commentBox .form-group:first-child, .actionBox .form-group:first-child {
-//  width:80%;
-//}
-//.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
-//  width:18%;
-//}
+
 .actionBox .form-group * {
   width:100%;
 }
+
 .taskDescription {
   margin-top: 10px;
 }
 .commentList {
   padding:0;
   list-style:none;
-  max-height:200px;
+  max-height:350px;
   overflow:auto;
 }
 .commentList li {
@@ -70,7 +66,6 @@
 }
 .post-comment{
   width:auto;
-//  margin:10px 0px;
 }
 .post-button{
   float: right;

@@ -1,4 +1,4 @@
-%li{'data-commentId' => comment.id}
+%li.list-group-item{'data-commentId' => comment.id}
   .commenterImage
     =image_tag comment.user.avatar.big_avatar.url
   .commenterName
@@ -17,4 +17,3 @@
       = comment.get_likes.size-comment.get_dislikes.size
     %span.upvote{:class => comment.votes_for.up.by_type(User).voters.include?(current_user) ? 'upvote-on' : ''}
     %span.downvote{:class => comment.votes_for.down.by_type(User).voters.include?(current_user) ? 'downvote-on' : ''}
-  %hr#commentLine

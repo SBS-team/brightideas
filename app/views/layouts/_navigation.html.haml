@@ -17,7 +17,7 @@
             = link_to user_path(current_user.id) do
               = image_tag(current_user.avatar.small_avatar.url, :class => 'img-circle')
               = "#{current_user.first_name}" + " #{current_user.last_name}"
-          %li
+          %li{:title => 'Sign out'}
             = link_to destroy_user_session_path, method: 'delete', :class => 'btn btn-lg' do
               %span.glyphicon.glyphicon-log-out
         - else
