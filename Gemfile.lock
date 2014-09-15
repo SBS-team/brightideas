@@ -307,6 +307,7 @@ DEPENDENCIES
   jquery-rails
   jquery-star-rating-rails
   kaminari
+  minitest
   pg
   quiet_assets
   rails (= 4.1.4)
