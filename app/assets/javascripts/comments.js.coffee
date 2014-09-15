@@ -5,7 +5,7 @@ $ ->
     reply_comment = ($(this).parents 'li').clone()
     $('#parent_comment_id').val reply_comment.attr "data-commentId"
     $("#reply_comment").html ''
-    $('#reply_comment').append('<h4>Reply</h4>')
+    $('#reply_comment').append('<h4 class="times-font">Reply</h4>')
     reply_comment.find('a.reply').remove()
     reply_comment.find('div.upvote').remove()
     reply_comment.find('hr').remove()
@@ -48,8 +48,8 @@ $ ->
 
   $('span.upvote').click ->
     comment_id = ($(this).parents 'li').attr "data-commentId"
-    $.post '/comment/'+ comment_id + '/like', null, "json"
+    $.getJSON '/comments/'+comment_id+'/like'
 
   $('span.downvote').click ->
     comment_id = ($(this).parents 'li').attr "data-commentId"
-    $.post '/comment/'+ comment_id + '/dislike', null, "json"
+    $.getJSON '/comments/'+comment_id+'/dislike'

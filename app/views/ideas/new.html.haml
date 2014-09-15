@@ -2,7 +2,7 @@
   %h2.times-font New idea
   %label.times-font Title
   %input.form-control{ :id => "title" }
-  %label.times-font Avatar
+  %label.times-font Title image
   %input{:type => 'hidden', :id => 'avatar'}
   = form_for  Attachment.new, :html => { :id => "avatarupload" }, :class => "fileupload" do |d|
     .fileupload-buttonbar
@@ -19,10 +19,10 @@
     %table.table.table-striped
       %tbody.files{:data=> {:toggle => 'modal-gallery', :target=> '#modal-gallery'}}
   %br
-  %label Description
+  %label.times-font Description
   %textarea{ :id => "description", :class => "ckeditor"}
   %br
-  %label Attachments
+  %label.times-font Attachments
   %input{:type => "hidden", :id => "attachments"}
   = form_for  Attachment.new, :html => { :id => "fileupload" } , :class => "fileupload" do |f|
     .fileupload-buttonbar

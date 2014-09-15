@@ -27,8 +27,23 @@ class IdeasController < ApplicationController
         format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
         format.json {render :json => @idea  }
       else
-        format.html { render action: 'new', notice: "Title and description can't be blank!" }
+        flash[:error] = "Title and description can't be blank!"
+        format.html { render action: 'new' }
       end
+    end
+  end
+
+  def edit
+    @idea = Idea.find params[:id]
+  end
+
+  def update
+    @idea = Idea.find params[:id]
+    if @idea.update(title: params[:idea][:title], description: params[:idea][:description])
+      redirect_to @idea, notice: 'Idea was successfully changed'
+    else
+      flash[:error] = "Title and description can't be blank!"
+      redirect_to :back
     end
   end
 

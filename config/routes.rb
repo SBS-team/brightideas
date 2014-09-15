@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:create, :destroy] do
     member do
-      get 'like'
-      get 'dislike'
+      get 'like', to: 'comments#comment_like'
+      get 'dislike', to: 'comments#comment_dislike'
     end
   end
 
@@ -20,8 +20,6 @@ Rails.application.routes.draw do
   resources :attachments, only: [:create, :destroy]
   resources :users, only: [:show, :update]
 
-  #post '/comment/:id/like' => 'comments#comment_like', :as => 'comment_like'
-  #post '/comment/:id/dislike' => 'comments#comment_dislike', :as => 'comment_dislike'
   delete '/tags' => 'tags#destroy'
   put '/user_avatar_update' => 'users#update'
 end
