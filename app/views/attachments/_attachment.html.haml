@@ -4,7 +4,7 @@
       -if %w{jpg png jpg gif bmp}.include? attachment.path.file.extension
         =image_tag attachment.path.thumb.url
       -else
-        =image_tag '/img/file.gif', :width => '100px', :height => '100px'
+        =image_tag 'file.gif', :width => '100px', :height => '100px'
       .clip
         %span{:title => attachment.read_attribute(:path)}
           =attachment.read_attribute(:path)

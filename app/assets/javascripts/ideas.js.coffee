@@ -13,9 +13,12 @@ $ ->
               dataType: "json"
             }).then(
               (data)->
+                avatar = data.user.avatar.popup_avatar.url
+                if avatar.indexOf("uploads") is -1
+                  avatar = "assets/" + avatar
                 title = data.user.first_name + " " + data.user.last_name
                 content = '<div class="row"><div class="col-md-6">'
-                content+= '<img src=' + data.user.avatar.popup_avatar.url + '></div><div class="col-md-6">'
+                content+= '<img src=' + avatar + '></div><div class="col-md-6">'
                 content+= '<div><span><i class="glyphicon glyphicon-user"></i>'+data.user_post+'</span></div>'
                 content+= '<div><span>'+data.user_ideas+'  ideas</span></div>'
                 content+= '<div class="last-activity"><span><i class="glyphicon glyphicon-time">
