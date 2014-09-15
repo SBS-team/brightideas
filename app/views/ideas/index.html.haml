@@ -17,7 +17,7 @@
                   = link_to 'rating', :controller => 'ideas', :action => 'index', :sort_by_column => 'rate'
     - if @idea.count == 0
       .idea-block-fill
-        = image_tag('/img/no_ideas.png')
+        = image_tag('no_ideas.png')
   .row
     .ideas-container
       = render :partial => @idea

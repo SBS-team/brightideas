@@ -1,4 +1,8 @@
 .container
+  -if @idea.user == current_user
+    =link_to edit_idea_path, class: 'btn btn-default pull-right' do
+      %i.glyphicon.glyphicon-pencil
+      Edit Idea
   .row.text-center
     .idea-user-box
       = image_tag(@idea.user.avatar, :class => 'idea-user')
@@ -14,7 +18,7 @@
   .row
     =@idea.description.html_safe
   -if !@idea.attachments.empty?
-    %h4 Attachments:
+    %h4.times-font Attachments:
     .well.row
       =render partial: @idea.attachments
   .row
@@ -23,14 +27,14 @@
                                   :value => @idea.rate }
   -if(!@idea.comments.empty?)
     .row
-      %h4 Comments
+      %h4.times-font Comments
       .detailBox
         .actionBox
           %ul.commentList.list-group
             =comments_tree_for(@idea.comments.hash_tree)
   .row
     %br
-    %h4 Your comment
+    %h4.times-font Your comment
     %ul#reply_comment
     .post-comment
       =form_for Comment.new do |f|

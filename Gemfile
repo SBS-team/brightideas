@@ -43,3 +43,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+
+group :test do
+  gem 'minitest'
+end

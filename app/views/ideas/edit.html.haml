@@ -1,0 +1,16 @@
+.container
+  -if @idea.user == current_user
+    %h2.times-font Edit idea
+    =form_for @idea, method: 'put'  do |f|
+      =f.label :title, 'Title', class: 'times-font'
+      =f.text_field  :title,  class: 'form-control'
+      %br
+      =f.label :description, 'Description', class: 'times-font'
+      =f.text_area :description, class: 'ckeditor', id: 'description'
+      %br
+      =f.submit 'Save idea', class: 'btn btn-success'
+  -else
+    %div.alert.alert-danger
+      You are not author!
+
+=javascript_include_tag 'attachments'

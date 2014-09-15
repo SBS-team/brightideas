@@ -82,4 +82,3 @@ pickle-email-*.html
 /config/database.yml
 
 public/assets
-test

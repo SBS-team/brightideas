@@ -25,7 +25,7 @@
     .col-md-12
       - if @user_ideas.count == 0
         .idea-block-fill
-          = image_tag('/img/no_ideas.png')
+          = image_tag('no_ideas.png')
       - else
         .ideas-container
           = render 'users/user_idea', :locals => {:ideas => @user_ideas}
