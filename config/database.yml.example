@@ -5,7 +5,7 @@ development:
   database: brightIdeas_development
   pool: 5
   timeout: 5000
-  username: kolenko_s
+  username:
   password:
 
 test:
@@ -15,7 +15,7 @@ test:
   database: brightIdeas_test
   pool: 5
   timeout: 5000
-  username: kolenko_s
+  username:
   password:
 
 production:
@@ -24,6 +24,6 @@ production:
   encoding: unicode
   database: brightIdeas_production
   pool:     5
-  username: kolenko_s
+  username:
   password:
   template: template0
