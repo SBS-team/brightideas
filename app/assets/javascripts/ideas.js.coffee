@@ -44,8 +44,9 @@ $ ->
     watch: 'window'
   })
 
-  $(".idea-description div").attr style: ""
-  $("[class^='idea-desc'] pre").attr style: "display:none"
+  $(".idea-description").children().attr style: ""
+  $(".idea-description").children().attr class: ""
+  $("[class^='idea-desc']").find("pre, ul").attr style: "display:none"
 
   $('.idea-desc-block').dotdotdot({
       watch: 'window'

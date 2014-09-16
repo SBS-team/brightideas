@@ -25,7 +25,7 @@ $ ->
       [ 'Bold', 'Italic', 'Underline', 'Strike' ],
       [ 'TextColor', 'BGColor' ],
       [ 'Link', 'Unlink'],
-      [ 'Image', 'Flash', 'HorizontalRule', 'Smiley', 'SpecialChar']
+      [ 'Image', 'HorizontalRule', 'Smiley', 'SpecialChar']
     ]
   }
 

@@ -3,7 +3,8 @@
     .col-md-2
       .avatar-box-big
         = image_tag(@user.avatar.big_avatar.url)
-        %span.glyphicon.glyphicon-pencil.pull-right.change-avatar{:title => 'Change avatar'}
+        -if @user == current_user
+          %span.glyphicon.glyphicon-pencil.pull-right.change-avatar{:title => 'Change avatar'}
     .col-md-10
       .user-name
         %span
