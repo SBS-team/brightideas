@@ -45,5 +45,7 @@ group :development do
 end
 
 group :test do
-  gem 'minitest'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end

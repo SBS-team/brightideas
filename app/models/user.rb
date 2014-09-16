@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def is_admin?
-    self.email && ENV['ADMIN_EMAILS'].to_s.include?(self.email)
+    self.email.eql?(ENV['ADMIN_EMAILS'].to_s)
   end
 
   has_many   :ideas, dependent: :destroy
