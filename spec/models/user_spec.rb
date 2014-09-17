@@ -18,7 +18,8 @@ describe User do
     it { should have_db_column(:last_name).of_type(:string)}
     it { should have_db_column(:office_id).of_type(:integer)}
     it { should have_db_column(:rank_id).of_type(:integer)}
-  end
+    it { should have_db_column(:avatar).of_type(:string)}
+    end
   describe 'validates' do
     before(:each) do
       FactoryGirl.create(:office)

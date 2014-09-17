@@ -10,6 +10,7 @@ FactoryGirl.define do
     first_name "huser"
     office_id  1
     rank_id 1
+    avatar File.open(File.join(Rails.root, '/app/assets/images/file.gif'))
   end
 
   factory :user do
@@ -21,5 +22,6 @@ FactoryGirl.define do
     first_name "dron"
     office_id  1
     rank_id 2
+    avatar File.open(File.join(Rails.root, '/app/assets/images/file.gif'))
   end
 end
