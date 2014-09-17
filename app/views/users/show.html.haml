@@ -1,5 +1,10 @@
 .container
   .row
+    -if @user == current_user
+      .pull-right
+        =link_to edit_user_registration_path, class: 'btn btn-default pull-right' do
+          %i.glyphicon.glyphicon-pencil
+          Edit Profile
     .col-md-2
       .avatar-box-big
         = image_tag(@user.avatar.big_avatar.url)
@@ -23,6 +28,7 @@
         ago
       #md-tags.tag-list
         %input{:type=>'hidden', :id => 'tagListIds'}
+
   .row
     %span.ideas-span
       My ideas

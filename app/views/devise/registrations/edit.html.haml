@@ -1,52 +1,51 @@
-.auth-form
+.container
   %h2
-    Edit #{resource_name.to_s.humanize}
-  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :patch, class: 'form-horizontal' }) do |f|
     = devise_error_messages!
     .form-group
-      %div
-        = f.label :first_name
-        %br/
-        = f.text_field :first_name, class: 'form-control'
+      =f.label :avatar, class: 'col-sm-2 control-label'
+      .col-sm-8
+        .avatar-box-small
+          = image_tag @user.avatar.big_avatar.url, class: 'user-avatar'
+        = f.file_field :avatar, class: 'avatar-field'
     .form-group
-      %div
-        = f.label :last_name
-        %br/
-        = f.text_field :last_name, class: 'form-control'
+      =f.label :first_name, class: 'col-sm-2 control-label'
+      .col-sm-8
+        = f.text_field :first_name, class: 'form-control', placeholder: 'First name'
     .form-group
-      %div
-        = f.label :post
-        %br/
-        = f.select :rank_id, options_for_select(@ranks.each_with_index.map {|name, index| [name,index+1]}), {}, {:class => 'form-control'}
+      =f.label :last_name, class: 'col-sm-2 control-label'
+      .col-sm-8
+        = f.text_field :last_name, class: 'form-control', placeholder: 'Last name'
     .form-group
-      %div
-        = f.label :office_id
-        %br/
-        = f.select :office_id, options_for_select(@offices.each_with_index.map {|name, index| [name,index+1]}), {}, { :class => 'form-control' }
+      =f.label :rank_id, class: 'col-sm-2 control-label'
+      .col-sm-8
+        = f.select :rank_id, options_for_select(@ranks.each_with_index.map {|name, index| [name,index+1]}, @user.rank_id), {}, {class: 'form-control'}
     .form-group
-      %div
-        = f.label :email
-        %br/
-        = f.email_field :email, autofocus: true, :class => 'form-control'
-      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-        %div
-          Currently waiting confirmation for: #{resource.unconfirmed_email}
+      =f.label :office_id, class: 'col-sm-2 control-label'
+      .col-sm-8
+        = f.select :office_id, options_for_select(@offices.each_with_index.map {|name, index| [name,index+1]}, @user.office_id), {}, { class: 'form-control' }
     .form-group
-      %div
+      =f.label :email, class: 'col-sm-2 control-label'
+      .col-sm-8
+        = f.text_field :email, class: 'form-control', placeholder: 'email'
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %div
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+    .form-group
+      .col-sm-2
         = f.label :password
-        %i (leave blank if you don't want to change it)
-        %br/
-        = f.password_field :password, autocomplete: "off", :class => 'form-control'
+      .col-sm-8
+        = f.password_field :password, autocomplete: "off", :class => 'form-control', placeholder: "leave blank if you don't want to change it"
     .form-group
-      %div
+      .col-sm-2
         = f.label :password_confirmation
-        %br/
+      .col-sm-8
         = f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control'
     .form-group
-      %div
+      .col-sm-2
         = f.label :current_password
-        %i (we need your current password to confirm your changes)
-        %br/
-        = f.password_field :current_password, autocomplete: "off", :class => 'form-control'
+      .col-sm-8
+        = f.password_field :current_password, autocomplete: "off", :class => 'form-control', placeholder: "we need your current password to confirm your changes"
     .form-group
-      %div= f.submit 'Update', :class => 'btn btn-success'
+      .col-sm-offset-2.col-sm-8
+        = f.submit 'Update', :class => 'btn btn-success'

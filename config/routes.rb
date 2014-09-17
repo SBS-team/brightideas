@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :tags,     only: [:create, :destroy]
   resources :attachments, only: [:create, :destroy]
-  resources :users, only: [:show, :update]
+  resources :users, only: [:show, :update, :edit]
 
   delete '/tags' => 'tags#destroy'
   put '/user_avatar_update' => 'users#update'
