@@ -1,9 +1,9 @@
 
 class Attachment < ActiveRecord::Base
 	belongs_to :idea
-	belongs_to :comment
   mount_uploader :path, AttachmentUploader
   include Rails.application.routes.url_helpers
+  validates :path, presence: true
 
   def to_jq_upload
     {

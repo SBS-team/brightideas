@@ -10,9 +10,12 @@ class User < ActiveRecord::Base
   has_many   :tags, dependent: :destroy
   has_many   :comments, dependent: :destroy
   belongs_to :rank
+  belongs_to :office
   has_many   :ratings, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
+
+  validates :rank, :office,:first_name,:last_name, presence: true
 
   def last_activity(format = nil)
     activity = []

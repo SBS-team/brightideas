@@ -23,7 +23,7 @@
           = f.text_field :first_name, class: 'input-field', :placeholder => 'First name'
           = f.text_field :last_name,  class: 'input-field', :placeholder => 'Last name'
           = f.select :rank_id, options_for_select(@ranks.each_with_index.map {|name, index| [name,index+1]}), {}, {:class => 'input-field'}
-          = f.select :office_num, options_for_select(@offices), {}, { :class => 'input-field' }
+          = f.select :office_id, options_for_select(@offices.each_with_index.map {|name, index| [name,index+1]}), {}, { :class => 'input-field' }
           = f.email_field :email, class: 'input-field', :placeholder => 'Email'
           = f.password_field :password, class: 'input-field', :placeholder => 'Password'
           = f.password_field :password_confirmation, class: 'input-field', :placeholder => 'Password confirmation'

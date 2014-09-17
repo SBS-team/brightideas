@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909143436) do
+ActiveRecord::Schema.define(version: 20140917094310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20140909143436) do
   create_table "attachments", force: true do |t|
     t.string   "path"
     t.integer  "idea_id"
-    t.integer  "comment_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,12 +48,12 @@ ActiveRecord::Schema.define(version: 20140909143436) do
   add_index "comment_hierarchies", ["descendant_id"], name: "descendant_idx", using: :btree
 
   create_table "comments", force: true do |t|
-    t.string   "text"
     t.integer  "user_id"
     t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "idea_id"
+    t.text     "text"
   end
 
   create_table "ideas", force: true do |t|
@@ -99,7 +98,6 @@ ActiveRecord::Schema.define(version: 20140909143436) do
     t.string   "first_name",             default: "", null: false
     t.string   "last_name",              default: "", null: false
     t.string   "email",                  default: "", null: false
-    t.string   "office_num",             default: "", null: false
     t.string   "encrypted_password",     default: ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -121,6 +119,7 @@ ActiveRecord::Schema.define(version: 20140909143436) do
     t.integer  "invitations_count",      default: 0
     t.string   "avatar"
     t.integer  "rank_id"
+    t.integer  "office_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

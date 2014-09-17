@@ -20,9 +20,9 @@
         = f.select :rank_id, options_for_select(@ranks.each_with_index.map {|name, index| [name,index+1]}), {}, {:class => 'form-control'}
     .form-group
       %div
-        = f.label :office_num
+        = f.label :office_id
         %br/
-        = f.select :office_num, options_for_select(@offices), {}, { :class => 'form-control' }
+        = f.select :office_id, options_for_select(@offices.each_with_index.map {|name, index| [name,index+1]}), {}, { :class => 'form-control' }
     .form-group
       %div
         = f.label :email
