@@ -63,13 +63,13 @@ Rails.application.configure do
                                               :email => {
                                                   :email_prefix => "[BrightIdeas] ",
                                                   :sender_address => %{"notifier" <ourstartups.loc@gmail.com>},
-                                                  :exception_recipients => %w{sergey.kolenko@faceit-team.com}
+                                                  :exception_recipients => %w{dmoroka92@gmail.com, sergey.kolenko@faceit-team.com}
                                               }
 
   # ActionMailer Config
   config.action_mailer.default_url_options = {:host => "our-startups-st.loc"}
-  config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
 
 
   # Prepend all log lines with the following tags.
