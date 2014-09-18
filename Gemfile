@@ -46,6 +46,9 @@ end
 
 group :test do
   gem 'rspec'
+  gem 'capybara'
   gem 'rspec-rails'
+  gem 'selenium-webdriver'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end

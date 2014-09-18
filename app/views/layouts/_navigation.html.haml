@@ -15,7 +15,7 @@
       %ul.nav.nav-pills.pull-right
         - if user_signed_in?
           %li
-            = link_to user_path(current_user.id) do
+            = link_to user_path(current_user.id), :class => 'user-profile-link' do
               = image_tag(current_user.avatar.small_avatar.url, :class => 'img-circle')
               = "#{current_user.first_name}" + " #{current_user.last_name}"
           %li{:title => 'Sign out'}
