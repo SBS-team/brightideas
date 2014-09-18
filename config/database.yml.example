@@ -1,0 +1,29 @@
+development:
+  adapter: postgresql
+  host:     localhost
+  encoding: unicode
+  database: brightIdeas_development
+  pool: 5
+  timeout: 5000
+  username:
+  password:
+
+test:
+  adapter: postgresql
+  host:     localhost
+  encoding: unicode
+  database: brightIdeas_test
+  pool: 5
+  timeout: 5000
+  username:
+  password:
+
+production:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: brightIdeas_production
+  pool:     5
+  username:
+  password:
+  template: template0

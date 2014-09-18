@@ -2,17 +2,13 @@ require 'spec_helper'
 
 describe 'User controller', js: true do
 
-  before(:all) do
-    @user = FactoryGirl.create(:user, id: 512, email: 'test@mail.com')
-    FactoryGirl.create(:office)
-    FactoryGirl.create(:rank, name: 'developer')
-  end
-
-  def sign_in_user
-    visit new_user_session_path
-    fill_in 'user_email', with: @user.email
-    fill_in 'user_password', with: @user.password
-    click_button 'Sign in'
+  before(:each) do
+    @office = FactoryGirl.create(:office)
+    @rank = FactoryGirl.create(:developer)
+    @user = FactoryGirl.create(:user, id: 100, email: 'test@mail.com')
+    2.times do
+      FactoryGirl.create(:tag, user_id: @user.id)
+    end
   end
 
   def sign_up_user
@@ -25,10 +21,20 @@ describe 'User controller', js: true do
     click_button 'Sign up'
   end
 
+
+  def sign_in_user
+    visit new_user_session_path
+    fill_in 'user_email', with: @user.email
+    fill_in 'user_password', with: @user.password
+    click_button 'Sign in'
+  end
+
+
   def visit_user_profile
     sign_in_user
     find('.user-profile-link').click
   end
+
 
   describe 'user sign up' do
     it 'should successfully sign up user' do
@@ -55,7 +61,7 @@ describe 'User controller', js: true do
     it 'should create user tag' do
       visit_user_profile
       find('.tags-input').set("tag1\ntag2\n")
-      expect(@user.tags.count).to eq(2)
+      expect(@user.tags.count).to eq(4)
     end
   end
 
@@ -86,4 +92,9 @@ describe 'User controller', js: true do
     end
   end
 
+  after(:each) do
+    @office.destroy()
+    @rank.destroy()
+    @user.destroy()
+  end
 end

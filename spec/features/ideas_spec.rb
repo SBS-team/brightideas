@@ -2,9 +2,11 @@ require 'spec_helper'
 
 describe 'Idea controller', js: true do
 
-  before(:all) do
-    @user = FactoryGirl.create(:user)
-    @idea = FactoryGirl.create(:idea, id: 10)
+  before(:each) do
+    @office = FactoryGirl.create(:office)
+    @rank = FactoryGirl.create(:developer)
+    @user = FactoryGirl.create(:user, id: 99, email: 'test2@mail.com')
+    @idea = FactoryGirl.create(:idea, id: 10, user_id: @user.id)
   end
 
   def sign_in_user
@@ -39,15 +41,18 @@ describe 'Idea controller', js: true do
   end
 
   describe 'post comment' do
-    it 'should crete comment to idea' do
+    it 'should create comment to idea' do
       visit_idea_page
       page.execute_script('$(CKEDITOR.instances.comment_text.setData("this is idea comment"));')
+      sleep 2.second
       click_button 'Post comment'
       expect(page).to have_content('this is idea comment')
     end
   end
 
-  after(:all) do
+  after(:each) do
+    @office.destroy()
+    @rank.destroy()
     @user.destroy()
     @idea.destroy()
   end

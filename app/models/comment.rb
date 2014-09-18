@@ -6,4 +6,6 @@ class Comment < ActiveRecord::Base
   belongs_to :idea, :counter_cache => true
   belongs_to :user
 
+  validates :text, :user, :idea, presence: true
+
 end

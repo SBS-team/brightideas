@@ -20,6 +20,7 @@ $ ->
                 content = '<div class="row"><div class="col-md-6">'
                 content+= '<img src=' + avatar + '></div><div class="col-md-6">'
                 content+= '<div><span><i class="glyphicon glyphicon-user"></i>'+data.user_post+'</span></div>'
+                content+= '<div><span><i class="glyphicon glyphicon-home"></i>office '+data.user_office+'</span></div>'
                 content+= '<div><span>'+data.user_ideas+'  ideas</span></div>'
                 content+= '<div class="last-activity"><span><i class="glyphicon glyphicon-time">
                                  </i> Last activity '+$.timeago(data.last_activity)+'</span></div></div></div>'
@@ -44,8 +45,9 @@ $ ->
     watch: 'window'
   })
 
-  $(".idea-description div").attr style: ""
-  $("[class^='idea-desc'] pre").attr style: "display:none"
+  $(".idea-description").children().attr style: ""
+  $(".idea-description").children().attr class: ""
+  $("[class^='idea-desc']").find("pre, ul").attr style: "display:none"
 
   $('.idea-desc-block').dotdotdot({
       watch: 'window'

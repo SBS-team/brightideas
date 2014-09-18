@@ -1,8 +1,12 @@
 require 'factory_girl'
 
 FactoryGirl.define do
-  factory :rank do |r|
-    r.sequence(:id) {|n| n}
-    r.name ''
+  factory :developer, class: Rank do
+    id 1
+    name 'developer'
+  end
+  factory :manager, class: Rank do
+    id 2
+    name 'manager'
   end
 end

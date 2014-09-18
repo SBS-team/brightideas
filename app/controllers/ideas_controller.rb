@@ -27,8 +27,7 @@ class IdeasController < ApplicationController
         format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
         format.json {render :json => @idea  }
       else
-        flash[:error] = "Title and description can't be blank!"
-        format.html { render action: 'new' }
+        format.html { render action: 'new', notice: "Title and description can't be blank!"}
       end
     end
   end

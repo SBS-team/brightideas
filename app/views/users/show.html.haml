@@ -1,9 +1,15 @@
 .container
   .row
+    -if @user == current_user
+      .pull-right
+        =link_to edit_user_registration_path, class: 'btn btn-default pull-right' do
+          %i.glyphicon.glyphicon-pencil
+          Edit Profile
     .col-md-2
       .avatar-box-big
         = image_tag(@user.avatar.big_avatar.url)
-        %span.glyphicon.glyphicon-pencil.pull-right.change-avatar{:title => 'Change avatar'}
+        -if @user == current_user
+          %span.glyphicon.glyphicon-pencil.pull-right.change-avatar{:title => 'Change avatar'}
     .col-md-10
       .user-name
         %span
@@ -11,6 +17,10 @@
       .user-post
         %span.glyphicon.glyphicon-user
           = @user_post
+        %br
+        %span.glyphicon.glyphicon-home
+          office
+          = @user.office.number
       .last-activity
         %span.glyphicon.glyphicon-time
         Last activity
@@ -18,6 +28,7 @@
         ago
       #md-tags.tag-list
         %input{:type=>'hidden', :id => 'tagListIds'}
+
   .row
     %span.ideas-span
       My ideas
