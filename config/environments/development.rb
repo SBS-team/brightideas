@@ -41,12 +41,9 @@ Rails.application.configure do
       password: ENV["GMAIL_PASSWORD"]
   }
 
-  config.action_mailer.default_url_options = {:host => "localhost:3000"}
+  config.action_mailer.default_url_options = {:host => "our-startups-st.loc"}
   config.action_mailer.perform_deliveries = true
 
-  #----------------------------------------
-  config.assets.raise_runtime_errors = true
-  #----------------------------------------
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

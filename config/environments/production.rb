@@ -71,6 +71,30 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: ENV["DOMAIN_NAME"],
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV["GMAIL_USERNAME"],
+      password: ENV["GMAIL_PASSWORD"]
+  }
+
+  BrightIdeas::Application.config.middleware.use ExceptionNotification::Rack,
+                                                 :email => {
+                                                     :email_prefix => "[BrightIdeas] ",
+                                                     :sender_address => %{"notifier" <ourstartups.loc@gmail.com>},
+                                                     :exception_recipients => %w{sergey.kolenko@faceit-team.com}
+                                                 }
+
+  # ActionMailer Config
+  config.action_mailer.default_url_options = {:host => "our-startups-st.loc"}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+
+
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 

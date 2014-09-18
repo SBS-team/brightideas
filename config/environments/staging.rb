@@ -44,6 +44,10 @@ Rails.application.configure do
   # Set to :debug to see everything in the log.
   config.log_level = :info
 
+  config.i18n.fallbacks = true
+
+  config.active_support.deprecation = :notify
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
       address: "smtp.gmail.com",
@@ -59,7 +63,7 @@ Rails.application.configure do
                                               :email => {
                                                   :email_prefix => "[BrightIdeas] ",
                                                   :sender_address => %{"notifier" <ourstartups.loc@gmail.com>},
-                                                  :exception_recipients => %w{dmoroka92@gmail.com, sergey.kolenko@faceit-team.com}
+                                                  :exception_recipients => %w{sergey.kolenko@faceit-team.com}
                                               }
 
   # ActionMailer Config
@@ -90,10 +94,8 @@ Rails.application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
-  config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners.
-  config.active_support.deprecation = :notify
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
