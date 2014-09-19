@@ -37,10 +37,8 @@ set :deploy_via, :remote_cache
 set :linked_files, %w{config/database.yml .env config/unicorn.rb}
 
 # Default value for linked_dirs is []
-
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system }
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 set :unicorn_conf, "#{fetch(:deploy_to)}/current/config/unicorn.rb"
-#set :unicorn_pid, "#{fetch(:deploy_to)}/shared/pids/unicorn.pid"
 set :unicorn_pid, "#{fetch(:deploy_to)}/shared/tmp/pids/unicorn.pid"
 
 # Default value for default_env is {}
@@ -77,36 +75,3 @@ end
 
 after('deploy:restart', 'deploy:cleanup')
 
-namespace :uploads do
-
-  desc <<-EOD
-    Creates the upload folders unless they exist
-    and sets the proper upload permissions.
-  EOD
-  task :setup, :except => { :no_release => true } do
-    dirs = uploads_dirs.map { |d| File.join(shared_path, d) }
-    run "#{try_sudo} mkdir -p #{dirs.join(' ')} && #{try_sudo} chmod g+w #{dirs.join(' ')}"
-  end
-
-  desc <<-EOD
-    [internal] Creates the symlink to uploads shared folder
-    for the most recently deployed version.
-  EOD
-  task :symlink, :except => { :no_release => true } do
-    run "rm -rf #{release_path}/public/uploads"
-    run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
-  end
-
-  desc <<-EOD
-    [internal] Computes uploads directory paths
-    and registers them in Capistrano environment.
-  EOD
-  task :register_dirs do
-    set :uploads_dirs,    %w(uploads uploads/attachment uploads/user)
-    set :shared_children, fetch(:shared_children) + fetch(:uploads_dirs)
-  end
-
-  after       "deploy:finalize_update", "uploads:symlink"
-  on :start,  "uploads:register_dirs"
-
-end

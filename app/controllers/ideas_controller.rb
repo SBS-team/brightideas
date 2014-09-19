@@ -48,7 +48,6 @@ class IdeasController < ApplicationController
   end
 
   def index
-
     @idea = Idea.all.page(params[:page]).per(8)
 
     if params[:search].present?
