@@ -41,8 +41,17 @@ Rails.application.configure do
       password: ENV["GMAIL_PASSWORD"]
   }
 
+  BrightIdeas::Application.config.middleware.use ExceptionNotification::Rack,
+                                                 :email => {
+                                                     :email_prefix => "[BrightIdeas] ",
+                                                     :sender_address => %{"notifier" <ourstartups.loc@gmail.com>},
+                                                     :exception_recipients => %w{dmoroka92@gmail.com, sergey.kolenko@faceit-team.com}
+                                                 }
+
+  # ActionMailer Config
   config.action_mailer.default_url_options = {:host => "our-startups-st.loc"}
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
