@@ -22,4 +22,5 @@ Rails.application.routes.draw do
 
   delete '/tags' => 'tags#destroy'
   put '/user_avatar_update' => 'users#update'
+
 end
