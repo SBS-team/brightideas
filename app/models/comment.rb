@@ -5,5 +5,5 @@ class Comment < ActiveRecord::Base
   belongs_to :user
 
   validates :text, :user, :idea, presence: true
-  acts_as_tree dependent: :destroy
+  acts_as_tree order: 'created_at', dependent: :destroy
 end
