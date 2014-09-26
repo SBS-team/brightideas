@@ -8,9 +8,8 @@ $ ->
         content: {
           text: (event, api)->
             $.ajax({
-              url: $(this).attr("href")
+              url: $(this).attr("href") + ".json"
               type: "GET"
-              dataType: "json"
             }).then(
               (data)->
                 avatar = data.user.avatar.popup_avatar.url

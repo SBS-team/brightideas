@@ -25,7 +25,9 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if params[:avatar].present?
-      @user.update_attributes(:avatar => params[:avatar])
+      unless @user.update_attributes(:avatar => params[:avatar])
+        flash[:error] = 'You are not allowed to upload this file, allowed types: jpg, jpeg, gif, png'
+      end
     end
     redirect_to :back
   end

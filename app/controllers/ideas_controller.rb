@@ -48,7 +48,6 @@ class IdeasController < ApplicationController
   end
 
   def index
-
     @idea = Idea.all.page(params[:page]).per(8)
 
     if params[:search].present?
@@ -65,7 +64,17 @@ class IdeasController < ApplicationController
 
   def destroy
     idea = Idea.find(params[:id])
-    idea.delete
+    if !idea.avatar_id.nil?
+      title_image = Attachment.find(@idea.avatar_id)
+      title_image.destroy
+    end
+    if @idea.destroy
+      flash[:success] = 'Idea was successfully deleted'
+
+    else
+      flash[:error] = 'Idea not has been deleted'
+    end
+    redirect_to :back
   end
 
   def set_rating

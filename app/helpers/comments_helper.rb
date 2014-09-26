@@ -5,5 +5,5 @@ module CommentsHelper
           (nested_comments.size > 0 ? content_tag(:div, comments_tree_for(nested_comments), class: "answer") : nil)
     end.join.html_safe
   end
-  
+
 end

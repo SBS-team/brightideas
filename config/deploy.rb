@@ -37,10 +37,8 @@ set :deploy_via, :remote_cache
 set :linked_files, %w{config/database.yml .env config/unicorn.rb}
 
 # Default value for linked_dirs is []
-
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system }
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 set :unicorn_conf, "#{fetch(:deploy_to)}/current/config/unicorn.rb"
-#set :unicorn_pid, "#{fetch(:deploy_to)}/shared/pids/unicorn.pid"
 set :unicorn_pid, "#{fetch(:deploy_to)}/shared/tmp/pids/unicorn.pid"
 
 # Default value for default_env is {}
@@ -76,3 +74,4 @@ namespace :deploy do
 end
 
 after('deploy:restart', 'deploy:cleanup')
+
