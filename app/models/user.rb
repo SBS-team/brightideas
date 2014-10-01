@@ -35,4 +35,8 @@ class User < ActiveRecord::Base
     last_activity
   end
 
+  def display_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
 end
