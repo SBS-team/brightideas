@@ -1,5 +1,7 @@
 ActiveAdmin.register User do
 
+  actions :all
+
   action_item do
     link_to 'Invite New User', new_invitation_admin_users_path
   end
