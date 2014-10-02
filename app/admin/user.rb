@@ -75,6 +75,6 @@ ActiveAdmin.register User do
   end
 
   filter :last_name, as: :string
-  filter :office, as: :select, collection: proc { Office.all.pluck(:number) }
-  filter :rank, as: :select, collection: proc {Rank.all.pluck(:name)}
+  filter :office, as: :select, collection: proc { Office.all }
+  filter :rank, as: :select, collection: proc {Rank.all }
 end
