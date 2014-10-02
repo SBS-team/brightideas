@@ -23,7 +23,7 @@ ActiveAdmin.register User do
 
   controller do
     def permitted_params
-      params.permit :user => [:email]
+      params.permit :user => [:email, :first_name, :last_name, :office_id, :rank_id]
     end
   end
 

@@ -5,7 +5,7 @@ ActiveAdmin.register Idea do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  # permit_params :list, :of, :attributes, :on, :model
+  permit_params :rate, :description, :title, :user_id
   #
   # or
   #
@@ -17,7 +17,7 @@ ActiveAdmin.register Idea do
 
   filter :title
   filter :rate, as: :numeric
-  filter :user, as: :select, collection: proc { User.all.map {|usr| [usr.first_name, usr.last_name] } }
+  filter :user, as: :select, collection: proc { User.all }
 
   index do
     column :id
