@@ -1388,3 +1388,34 @@
 .navbar-default a {
     color: #696969;
 }
+
+.nav-pills a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+/* --------------------------------------*/
+body {
+    background: url('gplaypattern.png');
+}
+
+.glyphicon-user, .glyphicon-home {
+    margin-right: 10px;
+}
+
+.popup_tags {
+    margin-left: 12px;
+}
+
+html, body, .content-wrapper {
+    height: 98%;
+}
+
+.content-block {
+    height: 100%;
+}
+
+
+#edit_user label {
+    font-family: 'Caudex-Regular';
+}

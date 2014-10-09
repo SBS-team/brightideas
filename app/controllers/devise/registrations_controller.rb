@@ -153,7 +153,7 @@ class Devise::RegistrationsController < DeviseController #FIXME remove unused me
   end
 
   def permitted_params
-    params.require(:user).permit(:avatar,:first_name, :last_name, :rank_id, :office_id, :email, :invitation_token, :password, :password_confirmation, :current_password)
+    params.require(:user).permit(:avatar, :first_name, :last_name, :rank_id, :office_id, :email, :invitation_token, :password, :password_confirmation, :current_password)
   end
 
 end

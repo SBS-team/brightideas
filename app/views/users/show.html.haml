@@ -1,10 +1,9 @@
 .container
   .row
     -if @user == current_user
-      .pull-right
-        =link_to edit_user_registration_path, class: 'btn btn-default pull-right' do
-          %i.glyphicon.glyphicon-pencil
-          Edit Profile
+      =link_to edit_user_registration_path, class: 'button_small button_outline button_outline_grey pull-right' do
+        %i.glyphicon.glyphicon-pencil
+        Edit Profile
     .col-md-2
       .avatar-box-big
         = image_tag(@user.avatar.big_avatar.url)
@@ -34,14 +33,10 @@
       My ideas
     %hr
     .col-md-12
-      - if @user_ideas.count == 0
-        .idea-block-fill
-          = image_tag('no_ideas.png')
-      - else
-        .ideas-container
-          = render 'users/user_idea', :locals => {:ideas => @user_ideas}
-        .pagination
-          = paginate @user_ideas
+      .ideas-container
+        = render 'users/user_idea', :locals => {:ideas => @user_ideas}
+      .pagination
+        = paginate @user_ideas
   #change-avatar-modal.modal.fade
     .modal-dialog
       .modal-content

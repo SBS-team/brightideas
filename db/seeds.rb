@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 OFFICES_COUNT = 6
 
-ranks = ['manager', 'developer', 'markuper', 'designer', 'administrator']
+ranks = ['manager', 'developer', 'markuper', 'designer']
 
 ranks.each do |rank|
   Rank.create(:name => rank)
@@ -16,5 +16,3 @@ end
 (1..OFFICES_COUNT).each do |office_num|
   Office.create(:number => office_num)
 end
-
-

@@ -1,22 +1,21 @@
 .col-md-3.col-sm-6.col-xs-12
   .idea-container
-    .thumbnail
-      =link_to idea do
-        =image_tag get_idea_avatar(idea), :class => "idea-image"
-      .caption.bg-lightcyan.idea-preview-caption
-        %div
-          %h4.clip.idea-title
-            = link_to idea.title, idea, :title => idea.title, :class => 'idea-title'
-          .idea-description
-            = idea.description.html_safe
-        .text-right
-          %span.btn-lg
-            %i.glyphicon.glyphicon-comment.icon-cornflowerblue
-            %span.badge.badge-comments
-              = idea.comments.count
-          %i.glyphicon.glyphicon-star.icon-gold
-          %span.badge
-            = idea.rate
-        %div
-          by
-          = link_to "#{idea.user.first_name} #{idea.user.last_name}", idea.user, :class => 'user-link'
+    .idea-title
+      %h4
+        = idea.title
+    .idea_image
+      = link_to idea do
+        =image_tag get_idea_avatar(idea)
+    .idea-description
+      = idea.description
+    .text-right
+      %span.btn-lg
+        %i.glyphicon.glyphicon-comment.icon-cornflowerblue
+        %span.badge.badge-comments
+          = idea.comments.count
+      %i.glyphicon.glyphicon-star.icon-gold
+      %span.badge
+        = idea.rate
+    .idea-author
+      by
+      = link_to "#{idea.user.first_name} #{idea.user.last_name}", idea.user, :class => 'user-link'

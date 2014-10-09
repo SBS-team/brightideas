@@ -15,7 +15,8 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  validates :rank, :office,:first_name,:last_name, presence: true
+  #validates :rank, :office, :first_name, :last_name, presence: true
+  validates :rank_id, :office_id, :first_name, :last_name, presence: true
 
   def last_activity(format = nil)
     activity = []

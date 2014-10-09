@@ -12,13 +12,13 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render :json => {
-                                      :user => @user, :user_post => @user_post,
-                                      :last_activity => @user.last_activity(:db),
-                                      :user_tags => gon.user_tags,
-                                      :user_ideas => @user_ideas.count,
-                                      :user_office => @user_office
-                                    }
-                  }
+          :user => @user, :user_post => @user_post,
+          :last_activity => @user.last_activity(:db),
+          :user_tags => gon.user_tags,
+          :user_ideas => @user_ideas.count,
+          :user_office => @user_office
+        }
+      }
     end
   end
 

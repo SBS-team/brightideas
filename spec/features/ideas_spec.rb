@@ -43,8 +43,8 @@ describe 'Idea controller', js: true do
   describe 'post comment' do
     it 'should create comment to idea' do
       visit_idea_page
+      sleep 3.second
       page.execute_script('$(CKEDITOR.instances.comment_text.setData("this is idea comment"));')
-      sleep 2.second
       click_button 'Post comment'
       expect(page).to have_content('this is idea comment')
     end

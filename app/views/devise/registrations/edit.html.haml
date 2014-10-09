@@ -3,48 +3,44 @@
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :patch, class: 'form-horizontal' }) do |f|
     = devise_error_messages!
     .form-group
-      =f.label :avatar, class: 'col-sm-2 control-label'
-      .col-sm-8
+      .col-sm-8.col-sm-offset-2
         .avatar-box-small
           = image_tag @user.avatar.big_avatar.url, class: 'user-avatar'
         = f.file_field :avatar, class: 'avatar-field'
     .form-group
-      =f.label :first_name, class: 'col-sm-2 control-label'
-      .col-sm-8
+      .col-sm-8.col-sm-offset-2
         = f.text_field :first_name, class: 'form-control', placeholder: 'First name'
     .form-group
-      =f.label :last_name, class: 'col-sm-2 control-label'
-      .col-sm-8
+      .col-sm-8.col-sm-offset-2
         = f.text_field :last_name, class: 'form-control', placeholder: 'Last name'
     .form-group
-      =f.label :rank_id, class: 'col-sm-2 control-label'
-      .col-sm-8
+      =f.label :rank_id, class: 'col-sm-2 control-label', style: 'margin-left: 6%;'
+    .form-group
+      .col-sm-8.col-sm-offset-2
         = f.select :rank_id, options_for_select(@ranks.each_with_index.map {|name, index| [name,index+1]}, @user.rank_id), {}, {class: 'form-control'}
     .form-group
-      =f.label :office_id, class: 'col-sm-2 control-label'
-      .col-sm-8
+      =f.label :office_id, class: 'col-sm-2 control-label', style: 'margin-left: 6%;'
+    .form-group
+      .col-sm-8.col-sm-offset-2
         = f.select :office_id, options_for_select(@offices.each_with_index.map {|name, index| [name,index+1]}, @user.office_id), {}, { class: 'form-control' }
     .form-group
-      =f.label :email, class: 'col-sm-2 control-label'
-      .col-sm-8
+      .col-sm-8.col-sm-offset-2
         = f.text_field :email, class: 'form-control', placeholder: 'email'
         - if devise_mapping.confirmable? && resource.pending_reconfirmation?
           %div
             Currently waiting confirmation for: #{resource.unconfirmed_email}
     .form-group
-      .col-sm-2
-        = f.label :password
-      .col-sm-8
+      = f.label :password, class: 'col-sm-2 col-sm-offset-1 control-label'
+    .form-group
+      .col-sm-8.col-sm-offset-2
         = f.password_field :password, autocomplete: "off", :class => 'form-control', placeholder: "leave blank if you don't want to change it"
     .form-group
-      .col-sm-2
-        = f.label :password_confirmation
-      .col-sm-8
+      = f.label :password_confirmation, class: 'col-sm-2 col-sm-offset-2 control-label'
+    .form-group
+      .col-sm-8.col-sm-offset-2
         = f.password_field :password_confirmation, autocomplete: "off", :class => 'form-control'
     .form-group
-      .col-sm-2
-        = f.label :current_password
-      .col-sm-8
+      .col-sm-8.col-sm-offset-2
         = f.password_field :current_password, autocomplete: "off", :class => 'form-control', placeholder: "we need your current password to confirm your changes"
     .form-group
       .col-sm-offset-2.col-sm-8

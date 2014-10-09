@@ -53,7 +53,6 @@ class IdeasController < ApplicationController
     if params[:search].present?
       @idea = @idea.where("lower(title) LIKE lower('%" + params[:search] + "%')")#.page(params[:page]).per(8)
     end
-
     if params[:sort_by_column].present?
       @idea = @idea.order(params[:sort_by_column] => :desc)#.page(params[:page]).per(8)
     end

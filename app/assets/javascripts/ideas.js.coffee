@@ -23,7 +23,7 @@ $ ->
                 content+= '<div><span>'+data.user_ideas+'  ideas</span></div>'
                 content+= '<div class="last-activity"><span><i class="glyphicon glyphicon-time">
                                  </i> Last activity '+$.timeago(data.last_activity)+'</span></div></div></div>'
-                content+= '<div class="row"><strong>'+data.user_tags.join(', ')+'</strong></div>'
+                content+= '<div class="row"><div class="popup_tags"><strong>'+data.user_tags.join(', ')+'</strong></div></div>'
                 api.set('content.title.text', title)
                 api.set('content.text', content)
               (xhr, status, error)->

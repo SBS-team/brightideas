@@ -19,15 +19,15 @@
           %button.close{"data-hide" => "alert", :type => "button"}
             %span{"aria-hidden" => "true"} ×
           Please choose an image file
-        = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'form-centered' }) do |f|
+        = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'form-centered'}) do |f|
           = devise_error_messages!
           .avatar-box-small
             = image_tag('', :class => 'user-avatar')
           = f.file_field :avatar, :class => 'avatar-field'
           = f.text_field :first_name, class: 'input-field', :placeholder => 'First name'
           = f.text_field :last_name,  class: 'input-field', :placeholder => 'Last name'
-          = f.select :rank_id, options_for_select(@ranks.each_with_index.map {|name, index| [name,index+1]}), {}, {:class => 'input-field'}
-          = f.select :office_id, options_for_select(@offices.each_with_index.map {|name, index| [name,index+1]}), {}, { :class => 'input-field' }
+          = f.select :rank_id, options_for_select(@ranks.each_with_index.map {|name, index| [name,index+1]}, resource.rank_id), {}, {:class => 'input-field'}
+          = f.select :office_id, options_for_select(@offices.each_with_index.map {|name, index| [name,index+1]}, resource.office_id), {}, { :class => 'input-field' }
           = f.email_field :email, class: 'input-field', :placeholder => 'Email'
           = f.password_field :password, class: 'input-field', :placeholder => 'Password'
           = f.password_field :password_confirmation, class: 'input-field', :placeholder => 'Password confirmation'

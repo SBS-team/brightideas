@@ -87,6 +87,7 @@ describe 'User controller', js: true do
   describe 'tag deleting' do
     it 'should remove user tag' do
       visit_user_profile
+      sleep 2.second
       first('.tag .remove').click
       expect(@user.tags.count).to eq(1)
     end

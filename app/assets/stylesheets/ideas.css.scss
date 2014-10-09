@@ -2,10 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.idea-image {
-  padding-bottom: 5px;
-  border-radius: 5%;
+//.idea-image {
+//  padding-bottom: 5px;
+//  border-radius: 5%;
+//}
+
+.idea_image {
+  margin-top: 0px;
+  width: 100%;
+  height: 125px;
 }
+
+.idea_image img{
+  height: 100%;
+  width: 100%;
+}
+
 .idea-owner {
   position: absolute;
   width:auto;
@@ -37,13 +49,45 @@
   text-decoration: none;
 }
 
-.idea-description{
-  height: 120px;
+//.idea-container .thumbnail {
+//  background-color: #f8f8f8;
+//}
+
+.idea-container {
+  margin-top: 10px;
+  background: #fafafa;
+  background-clip: padding-box;
+  border: solid #453b5d;
+  border-width: 2px 2px 2px 2px;
+  border-radius: 5%;
+  -moz-border-radius: 5%;
+  -webkit-border-radius: 5%;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(black, .1);
 }
 
-.idea-description img{
-  max-height: 100px;
-  max-width: 80px;
+
+@font-face{
+  font-family: 'Caudex-Regular';
+  src: font-url("Caudex-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.idea-desc-on-show {
+  font-family: 'Caudex-Regular'
+}
+
+.idea-description{
+  margin: 5px;
+  height: 120px;
+  font-family: 'Caudex-Regular'
+}
+
+.idea-author {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
 }
 
 .idea-preview{
@@ -71,9 +115,10 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.bg-lightcyan{
-  background-color: #E8F6FF;
-}
+
+//.bg-lightcyan{
+//  background-color: #E8F6FF;
+//}
 
 .p-bot-5{
   padding-bottom: 5px;
@@ -140,6 +185,11 @@
   font-size: 110%;
   margin-left: -50px;
   height: 125px;
+  font-family: 'Caudex-Regular'
+}
+
+.new_idea label{
+  font-family: 'Caudex-Regular';
 }
 
 .glyphicon-comment {
@@ -251,4 +301,54 @@
 
 .times-font{
   font-family: "Times New Roman", Times, serif;
+}
+
+//Edit idea button style
+.button_outline_grey:hover {
+  border-color: #0f2105;
+  color: #0f2105;
+  text-decoration: none;
+}
+
+.button_outline_grey {
+  border-color: #828587;
+  color: #828587;
+}
+
+.button_small {
+  line-height: 30px;
+  min-height: 30px;
+  height: auto;
+  margin-top: 10px;
+  font-size: 12px;
+  padding: 0px 10px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+.button_outline {
+  border-width: 2px;
+  background-color: transparent;
+  border-style: solid;
+}
+.navbar-default{
+   border: 1px solid #0f2105;
+ }
+
+#dropdownMenu1 {
+  border-width: 2px;
+  border-color: #828587;
+  color: #828587;
+  background-color: transparent;
+  border-style: solid;
+}
+
+#dropdownMenu1:hover {
+  border-color: #0f2105;
+  color: #0f2105;
+}
+
+.wrap-text{
+  word-wrap: break-word;
 }

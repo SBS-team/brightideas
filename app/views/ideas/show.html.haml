@@ -1,6 +1,6 @@
 .container
   -if @idea.user == current_user
-    =link_to edit_idea_path, class: 'btn btn-default pull-right' do
+    =link_to edit_idea_path, class: 'button_small button_outline button_outline_grey pull-right' do
       %i.glyphicon.glyphicon-pencil
       Edit Idea
   .row.text-center
@@ -16,7 +16,8 @@
   %br
   %hr
   .row
-    =@idea.description.html_safe
+    .idea-desc-on-show
+      =@idea.description.html_safe
   -if !@idea.attachments.empty?
     %h4.times-font Attachments:
     .well.row
