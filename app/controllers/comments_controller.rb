@@ -19,8 +19,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    comment = Comment.find(params[:id])
+    comment  = Comment.find(params[:id])
+    child_comments_ids = comment.descendants.pluck(:id)
+    comment.children.destroy_all
     comment.destroy
+    render json: {parent_comment_id: comment.id, child_comment_ids: child_comments_ids}
+    #comment = Comment.find(params[:id])
+    #comment.destroy
   end
 
   def comment_like

@@ -1419,3 +1419,7 @@ html, body, .content-wrapper {
 #edit_user label {
     font-family: 'Caudex-Regular';
 }
+
+.destroy_comment .glyphicon-remove:hover {
+    color: red;
+}

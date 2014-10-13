@@ -53,3 +53,17 @@ $ ->
   $('span.downvote').click ->
     comment_id = ($(this).parents 'li').attr "data-commentId"
     $.getJSON '/comments/'+comment_id+'/dislike'
+
+  $('.destroy_comment .glyphicon-remove').click ->
+    comment_id = $(this).closest('.list-group-item').attr('data-commentid')
+    $.ajax
+      type: "POST"
+      url: '/comments/' + comment_id
+      data:
+        _method: 'DELETE'
+        id: comment_id
+      success: (response) ->
+        #deleting comment with all subcomments
+        for i in response.child_comment_ids
+          $(".list-group-item[data-commentid=\"#{i}\"]").remove()
+        $(".list-group-item[data-commentid=\"#{response.parent_comment_id}\"]").remove()

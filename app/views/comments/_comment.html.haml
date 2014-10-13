@@ -1,4 +1,7 @@
 %li.list-group-item{'data-commentId' => comment.id}
+  - if current_user.is_admin?
+    .destroy_comment.pull-right
+      %span.glyphicon.glyphicon-remove
   .commenterImage
     =image_tag comment.user.avatar.big_avatar.url
   .commenterName
