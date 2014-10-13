@@ -1,8 +1,12 @@
 .auth-form
-  %h2= t 'devise.invitations.edit.header'
+  %h2= 'Set your password'
   = form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f|
     = devise_error_messages!
     = f.hidden_field :invitation_token
+    = f.hidden_field :first_name, value: 'unknown'
+    = f.hidden_field :last_name, value: 'unknown'
+    = f.hidden_field :rank_id, value: 1
+    = f.hidden_field :office_id, value: 1
     .form-group
       %p
         = f.label :password
@@ -14,4 +18,4 @@
       %br/
       = f.password_field :password_confirmation, :class => 'form-control'
     .form-group
-      %p= f.submit t("devise.invitations.edit.submit_button")
+      %p= f.submit "Set password"

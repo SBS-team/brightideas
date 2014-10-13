@@ -31,8 +31,16 @@ ActiveAdmin.register User do
     column :id
     column (:full_name) {|user| "#{user.first_name} #{user.last_name}"}
     column :email
-    column (:rank) {|user| user.rank.name}
-    column (:office) {|user| user.office.number}
+    column (:rank) { |user|
+      if !user.rank.nil?
+        user.rank.name
+      end
+    }
+    column (:office) {|user|
+      if !user.office.nil?
+        user.office.number
+      end
+    }
     column :encrypted_password
     column :invitation_token
     column :invitation_sent_at
@@ -46,8 +54,16 @@ ActiveAdmin.register User do
       row :first_name
       row :last_name
       row :email
-      row (:rank) {|user| user.rank.name}
-      row (:office) {|user| user.office.number}
+      row (:rank) {|user|
+        if !user.rank.nil?
+          user.rank.name
+        end
+      }
+      row (:office) {|user|
+        if !user.office.nil?
+          user.office.number
+        end
+      }
       row :encrypted_password
       row :current_sign_in_at
       row :last_sign_in_at

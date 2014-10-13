@@ -34,11 +34,11 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       address: "smtp.gmail.com",
       port: 587,
-      domain: ENV["DOMAIN_NAME"],
+      domain: Rails.application.secrets.domain_name,
       authentication: "plain",
       enable_starttls_auto: true,
-      user_name: ENV["GMAIL_USERNAME"],
-      password: ENV["GMAIL_PASSWORD"]
+      user_name: Rails.application.secrets.gmail_username,
+      password: Rails.application.secrets.gmail_password
   }
 
   BrightIdeas::Application.config.middleware.use ExceptionNotification::Rack,
@@ -49,7 +49,7 @@ Rails.application.configure do
                                                  }
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = {:host => "our-startups-st.loc"}
+  config.action_mailer.default_url_options = {:host => "localhost:3000"}
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
