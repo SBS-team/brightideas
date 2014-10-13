@@ -7,7 +7,7 @@
       = link_to idea do
         =image_tag get_idea_avatar(idea)
     .idea-description
-      = idea.description
+      = idea.description.html_safe
     .text-right
       %span.btn-lg
         %i.glyphicon.glyphicon-comment.icon-cornflowerblue

@@ -9,10 +9,10 @@ class Idea < ActiveRecord::Base
   #---------------------------------------
   validates :title, :description, :user, presence: true
 
-  before_save :escape_html_from_description
+  #before_save :escape_html_from_description
 
-  def escape_html_from_description
-    self.description = ActionController::Base.helpers.strip_tags(self.description)
-  end
+  #def escape_html_from_description
+  #  self.description = ActionController::Base.helpers.strip_tags(self.description)
+  #end
 
 end
