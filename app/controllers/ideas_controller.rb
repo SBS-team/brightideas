@@ -15,6 +15,7 @@ class IdeasController < ApplicationController
 
     respond_to do |format|
       if @idea.save
+        puts '---------------------------- SAVED ----------------------'
         if !params[:attachments].blank?
           @attachments = params[:attachments].split(' ')
           @attachments.each do |attach_id|
@@ -27,8 +28,9 @@ class IdeasController < ApplicationController
         format.html { redirect_to @idea, notice: 'Idea was successfully created.' }
         format.json {render :json => @idea  }
       else
+        puts '----------------------------NOT  SAVED ----------------------'
         format.html { redirect_to :back, notice: "Title and description can't be blank!"}
-        format.json {render :json => @idea.errors  }
+        format.json {render :json => { errors: @idea.errors } }
       end
     end
   end

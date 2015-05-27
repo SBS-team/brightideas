@@ -21,9 +21,23 @@ ActiveAdmin.register User do
     end
   end
 
+  form do |f|
+    f.inputs "Admin Details" do
+      f.input :first_name
+      f.input :last_name
+      f.input :email
+      f.input :rank, as: :select, :label_method => Rank.pluck(:name) , :value_method => Rank.pluck(:id)
+      f.input :office, :label_method => Office.pluck(:number) , :value_method => Office.pluck(:id)
+      f.input :password
+      f.input :password_confirmation
+      f.input :avatar, :as => :file
+    end
+    f.actions
+  end
+
   controller do
     def permitted_params
-      params.permit :user => [:email, :first_name, :last_name, :office_id, :rank_id]
+      params.permit :utf8, :_method, :authenticity_token, :commit, :id, :user => [:email, :first_name, :last_name, :office_id, :rank_id, :password, :password_confirmation, :avatar]
     end
   end
 
@@ -41,10 +55,6 @@ ActiveAdmin.register User do
         user.office.number
       end
     }
-    column :encrypted_password
-    column :invitation_token
-    column :invitation_sent_at
-    column :invitation_accepted_at
     actions
   end
 
@@ -64,14 +74,6 @@ ActiveAdmin.register User do
           user.office.number
         end
       }
-      row :encrypted_password
-      row :current_sign_in_at
-      row :last_sign_in_at
-      row :created_at
-      row :updated_at
-      row :invitation_token
-      row :invitation_sent_at
-      row :invitation_accepted_at
       row :avatar
       panel 'User Ideas' do
         table_for user.ideas do

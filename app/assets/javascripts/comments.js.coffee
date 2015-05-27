@@ -12,6 +12,7 @@ $ ->
     reply_comment.prepend "<span class='close'>x</span>"
     reply_comment.find('span.close').click ->
       $("#reply_comment").html ''
+      $('#parent_comment_id').val ''
     reply_comment.addClass 'well'
     reply_comment.appendTo '#reply_comment'
 

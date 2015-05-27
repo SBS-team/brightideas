@@ -1,6 +1,14 @@
 ActiveAdmin.register Idea do
 
-  actions :all
+  form do |f|
+    f.inputs "New idea" do
+      f.input :user, as: :select, :label_method => User.pluck(:last_name) , :value_method => User.pluck(:id)
+      f.input :title
+      f.input :description, as: :text
+      f.input :rate, as: :number, max: 5.0, step: 0.1
+    end
+    f.actions
+  end
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

@@ -54,6 +54,7 @@
 //}
 
 .idea-container {
+  height: 350px;
   margin-top: 10px;
   background: #fafafa;
   background-clip: padding-box;
@@ -137,12 +138,17 @@
 }
 
 .idea-title{
+  height: 25px;
   color: #000000;
   text-decoration: none;
   text-align: center;
 }
 .text-left{
   text-align: left;
+}
+
+.text-right {
+  height: 25px;
 }
 
 .col-link:hover{

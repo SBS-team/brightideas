@@ -44,6 +44,10 @@ $ ->
     watch: 'window'
   })
 
+  $('.idea-title').dotdotdot({
+     wrap: 'letter'
+  })
+
   $(".idea-description").children().attr style: ""
   $(".idea-description").children().attr class: ""
   $("[class^='idea-desc']").find("pre, ul").attr style: "display:none"
@@ -81,3 +85,5 @@ $ ->
       $(".idea-description div").attr style: ""
       $("[class^='idea-desc'] pre").attr style: "display:none"
       show_popup()
+
+  $('nav.pagination').css('display', 'none')

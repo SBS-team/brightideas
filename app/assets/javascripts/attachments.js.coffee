@@ -52,7 +52,10 @@ $ ->
         avatar_id: $("#avatar").val()
       attachments: $("#attachments").val()
     ,(data) ->
-      window.location.pathname = "/ideas/" + data.id
+       unless(data.errors)
+         window.location.pathname = "/ideas/" + data.id
+       else
+         $('.new_idea').prepend('<div class="alert alert-danger"><a class="close" data-dismiss="alert">×</a><span>Title and description can\'t be blank!</span></div>')
     , "json"
 
   isValid = ->
